@@ -7,7 +7,7 @@
 
     "modules-left": ["custom/launcher", "cpu", "memory", "disk", "network"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/pipewire", "backlight", "battery", "clock", "custom/powermenu"],
+    "modules-right": ["custom/pipewire", "backlight", "battery", "custom/clock", "custom/powermenu"],
 
     // Module config 
 
@@ -39,8 +39,8 @@
     },
 
     "clock": {
+        "format": " {:%H:%M}",
         "tooltip": false,
-        "format": "{:%I:%M %p}"
     },
 
     "cpu": {
@@ -53,14 +53,6 @@
         "interval": 30,
         "format": " {percentage_used}%",
         "path": "/"
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
 
     "memory": {
@@ -85,7 +77,10 @@
         "format": ""
     },
 
+    // Custom modules
+
     "custom/pipewire": {
+		"format": "{}",
 		"tooltip": false,
 		"max-length": 6,
 		"exec": "$HOME/.config/waybar/scripts/pipewire.sh",
@@ -93,11 +88,15 @@
 		"on-click-right": "qpwgraph" 
 	},
 
+	"custom/clock": {
+		"format": " {}",
+		"exec": "date +%H:%M",
+		"tooltip": false,
+	},
+
     "custom/workspaces": {
 		// TODO: check hyprctl
 	},
-
-    // Custom modules
 
 	"custom/launcher": {
         "format": "",

@@ -2,7 +2,6 @@
     transition: none;
     box-shadow: none;
     font-family: "Fira Code", regular;
-    font-size: 10px;
     color: #f2f2f2;
 }
 
@@ -37,7 +36,7 @@
     color: #ff0055;
 }
 
-#mode, #battery, #bluetooth, #cpu, #disk, #memory, #temperature, #network, #pulseaudio, #idle_inhibitor, #backlight, #mpd, #clock, #temperature, #window {
+#battery, #bluetooth, #cpu, #disk, #memory, #network, #backlight, #window, #custom-pipewire, #custom-clock {
     margin: 4px 2px;
     padding: 2px 8px;
     border-radius: 20px;
@@ -45,36 +44,10 @@
     background-color: #32363d;
 }
 
-#clock {
-    margin: 4px 2px;
-    padding: 0 10px;
-  }
-
-#tray {
-    margin: 3px 2px;
-    border-radius: 12px;
-    background-color: #060608;
-}
-  
-#tray * {
-    padding: 0 6px;
-    border-left: 1px solid #060608;
-}
-  
-#tray *:first-child {
-    border-left: none;
-}
-
-#mpd * {
-    min-width: 10px;
-    font-size: 11px;
-    font-family: JetBrainsMono;
-}
-  
 #custom-powermenu {
     margin: 4px 5px 4px 1px;
     padding: 0 6px;
-    background-color: #722F37;
+    background-color: #e64553;
     border-radius: 10px;
     min-width: 15px;
 }
@@ -82,7 +55,7 @@
 #custom-launcher {
     margin: 4px 1px 4px 5px;
     padding: 0 6px;
-    background-color: #ff0055;
+    background-color: #e64553;
     border-radius: 10px;
     min-width: 15px;
 }
@@ -93,8 +66,4 @@
 
 #battery.critical {
     color: #ff0055
-}
-
-#temperature.critical {
-    color: #e06b74;
 }

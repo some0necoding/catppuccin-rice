@@ -12,7 +12,7 @@ snore() {
 DELAY=0.2
 
 while snore $DELAY; do
-    WP_OUTPUT=$(wpctl get-volume @ID@)
+    WP_OUTPUT=$(wpctl get-volume 46)
 
     if [[ $WP_OUTPUT =~ ^Volume:[[:blank:]]([0-9]+)\.([0-9]{2})([[:blank:]].MUTED.)?$ ]]; then
         if [[ -n ${BASH_REMATCH[3]} ]]; then
