@@ -5,7 +5,7 @@
     "width": 1285,
     "margin": "2, 0, 2, 0",
 
-    "modules-left": ["custom/launcher", "cpu", "memory", "disk", "network"],
+    "modules-left": ["custom/launcher", "custom/workspaces", "cpu", "memory", "disk", "network"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["custom/pipewire", "backlight", "battery", "custom/clock", "custom/powermenu"],
 
@@ -95,7 +95,9 @@
 	},
 
     "custom/workspaces": {
-		// TODO: check hyprctl
+		"format": "{}",
+		"exec": "$HOME/.config/waybar/scripts/workspaces.sh",
+		"tooltip": false,
 	},
 
 	"custom/launcher": {
