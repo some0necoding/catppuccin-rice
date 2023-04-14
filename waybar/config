@@ -1,91 +1,114 @@
 {
-    "layer": "top",			// Waybar at top layer
-    "position": "top",		// Waybar position (top|bottom|left|right)
-    "height": 20,			// Waybar height (to be removed for auto height)
-    "width": 1280,			// Waybar width
-    "spacing": 4,			// Gaps between modules (4px)
-    
-	// Choose the order of the modules
-    "modules-left": ["custom/launcher", "tray", "cpu", "memory", "custom/mpc"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["custom/pipewire", "backlight", "network", "clock", "battery", "custom/power"],
-  
-	"margin": 5,
-	"mode": "overlay",
+    "layer": "top",
+    "position": "top",
+    "height": 20,
+    "width": 1285,
+    "margin": "2, 0, 2, 0",
 
-	// Modules configuration
- 
-	"custom/pipewire": {
-        
-		// "scroll-step": 1, // %, can be a float
-        "format": "{icon}",
-        //"format-bluetooth": "{volume}% {icon} {format_source}",
-        //"format-bluetooth-muted": " {icon} {format_source}",
-        //"format-muted": " {format_source}",
-        //"format-source": "{volume}% ",
-        //"format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        //"on-click": "pavucontrol"
-		"exec": "pw-volume status"
+    "modules-left": ["custom/launcher", "cpu", "memory", "disk", "network"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/pipewire", "backlight", "battery", "clock", "custom/powermenu"],
+
+    // Module config 
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["","","","", "", "", ""],
+        "min-length": 7
     },
-   
-	"tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-    
-	"clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    
-	"cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    
-	"memory": {
-        "format": "{}% "
-    },
-    
-	"backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-    
-	"battery": {
+
+    "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": [" ", " ", " ", " ", " "]
     },
-   
-   "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+
+    "bluetooth": {
+        "format-disabled": "",
+        "format-off": "",
+        "format-on": "",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias}  {device_battery_percentage}%",
+        "tooltip": false
     },
-  
+
+    "clock": {
+        "tooltip": false,
+        "format": "{:%I:%M %p}"
+    },
+
+    "cpu": {
+        "interval": 30,
+        "format": " {usage}%",
+        "min-length": 7
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "path": "/"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "min-length": 7
+    },
+
+    "network": {
+        "tooltip": true,
+        "interval": 30,
+		"format": "",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "LINK: {ifname}\nIP: {ipaddr}/{cidr}\nSPEED: {bandwidthTotalBytes}",
+        "on-click": "connman-gtk"
+    },
+
+    "network#vpn": {
+        "interface": "tun0",
+        "format": ""
+    },
+
+    "custom/pipewire": {
+		"tooltip": false,
+		"max-length": 6,
+		"exec": "$HOME/.config/waybar/scripts/pipewire.sh",
+		"on-click": "pavucontrol",
+		"on-click-right": "qpwgraph" 
+	},
+
+    "custom/workspaces": {
+		// TODO: check hyprctl
+	},
+
+    // Custom modules
+
+	"custom/launcher": {
+        "format": "",
+        "on-click": "fuzzel",
+        "tooltip": false
+    },
+
+    "custom/powermenu": {
+        "format": "",
+        "on-click": "~/.config/wofi/scripts/powermenu.sh &",
+        "on-click-right": "~/.config/wofi/scripts/powermenu.sh &",
+        "tooltip": false
+    },
 }
