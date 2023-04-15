@@ -15,15 +15,7 @@
     border: none;
 }
 
-#custom-workspaces {
-    margin: 4px 2px;
-    padding: 0px 8px;
-    border-radius: 20px;
-    min-width: 8px;
-    background-color: #32363d;
-}
-
-#battery, #bluetooth, #cpu, #disk, #memory, #network, #backlight, #window, #custom-pipewire, #custom-clock {
+#battery, #bluetooth, #cpu, #disk, #memory, #network, #backlight, #window, #custom-pipewire, #custom-clock, #custom-workspaces {
     margin: 4px 2px;
     padding: 2px 8px;
     border-radius: 20px;

@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 
 import subprocess
+import time
+import re
 
-while True:
-    currentWorkspace = int(subprocess.getoutput("hyprctl activewindow | grep workspace | cut -d ' ' -f 2"))
+pattern = re.compile("^([1-9]|10)$")
 
-    tray = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+output = subprocess.getoutput("hyprctl activewindow | grep workspace | cut -d ' ' -f 2")
+
+tray = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+    
+if pattern.match(output):
+    currentWorkspace = int(output)
     tray[currentWorkspace - 1] = " "
 
-    print("".join(tray))
+print("".join(tray))
