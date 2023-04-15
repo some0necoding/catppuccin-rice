@@ -34,6 +34,12 @@ key.map("n", "<S-j>", "<C-w>j")
 key.map("n", "<S-k>", "<C-w>k")
 key.map("n", "<S-l>", "<C-w>l")
 
+-- tab management
+key.map("n", "<C-t>", ":tabnew<CR>")
+key.map("n", "<C-l>", ":tabnext<CR>")
+key.map("n", "<C-h>", ":tabprev<CR>")
+key.map("n", "<C-w>", ":bd<CR>")
+
 -- deleted text is not copied to the clipboard
 key.map("n", 'd$', '"_d$')
 key.map("n", 'dw', '"_dw')
