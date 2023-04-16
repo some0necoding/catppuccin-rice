@@ -1,5 +1,6 @@
 dconf/
-gtk-3.0/
+gtk-*/
 pulse/
 systemd/
 yay/
+notion-app/
