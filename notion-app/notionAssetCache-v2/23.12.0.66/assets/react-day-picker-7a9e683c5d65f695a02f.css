@@ -1,0 +1,527 @@
+/*!************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/react-day-picker/dist/style.css ***!
+  \************************************************************************************************/
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #0000ff;
+  --rdp-background-color: #e7edff;
+  --rdp-accent-color-dark: #3003e1;
+  --rdp-background-color-dark: #180270;
+  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+  --rdp-outline-selected: 3px solid var(--rdp-accent-color); /* Outline border for focused _and_ selected elements */
+
+  margin: 1em;
+}
+
+/* Hide elements for devices that are not screen readers */
+.rdp-vhidden {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute !important;
+  top: 0;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  border: 0 !important;
+}
+
+/* Buttons */
+.rdp-button_reset {
+  appearance: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  color: inherit;
+  background: none;
+  font: inherit;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.rdp-button_reset:focus-visible {
+  /* Make sure to reset outline only when :focus-visible is supported */
+  outline: none;
+}
+
+.rdp-button {
+  border: 2px solid transparent;
+}
+
+.rdp-button[disabled]:not(.rdp-day_selected) {
+  opacity: 0.25;
+}
+
+.rdp-button:not([disabled]) {
+  cursor: pointer;
+}
+
+.rdp-button:focus-visible:not([disabled]) {
+  color: inherit;
+  background-color: var(--rdp-background-color);
+  border: var(--rdp-outline);
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-months {
+  display: flex;
+}
+
+.rdp-month {
+  margin: 0 1em;
+}
+
+.rdp-month:first-child {
+  margin-left: 0;
+}
+
+.rdp-month:last-child {
+  margin-right: 0;
+}
+
+.rdp-table {
+  margin: 0;
+  max-width: calc(var(--rdp-cell-size) * 7);
+  border-collapse: collapse;
+}
+
+.rdp-with_weeknumber .rdp-table {
+  max-width: calc(var(--rdp-cell-size) * 8);
+  border-collapse: collapse;
+}
+
+.rdp-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  text-align: left;
+}
+
+.rdp-multiple_months .rdp-caption {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.rdp-caption_dropdowns {
+  position: relative;
+  display: inline-flex;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  color: currentColor;
+  border: 0;
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 140%;
+  font-weight: bold;
+}
+
+.rdp-nav {
+  white-space: nowrap;
+}
+
+.rdp-multiple_months .rdp-caption_start .rdp-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-multiple_months .rdp-caption_end .rdp-nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-nav_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  padding: 0.25em;
+  border-radius: 100%;
+}
+
+/* ---------- */
+/* Dropdowns  */
+/* ---------- */
+
+.rdp-dropdown_year,
+.rdp-dropdown_month {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.rdp-dropdown {
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.rdp-dropdown[disabled] {
+  opacity: unset;
+  color: unset;
+}
+
+.rdp-dropdown:focus-visible:not([disabled]) + .rdp-caption_label {
+  background-color: var(--rdp-background-color);
+  border: var(--rdp-outline);
+  border-radius: 6px;
+}
+
+.rdp-dropdown_icon {
+  margin: 0 0 0 5px;
+}
+
+.rdp-head {
+  border: 0;
+}
+
+.rdp-head_row,
+.rdp-row {
+  height: 100%;
+}
+
+.rdp-head_cell {
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-align: center;
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+}
+
+.rdp-tbody {
+  border: 0;
+}
+
+.rdp-tfoot {
+  margin: 0.5em;
+}
+
+.rdp-cell {
+  width: var(--rdp-cell-size);
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+  text-align: center;
+}
+
+.rdp-weeknumber {
+  font-size: 0.75em;
+}
+
+.rdp-weeknumber,
+.rdp-day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--rdp-cell-size);
+  max-width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 100%;
+}
+
+.rdp-day_today:not(.rdp-day_outside) {
+  font-weight: bold;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  color: white;
+  opacity: 1;
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_selected:focus-visible {
+  /* Since the background is the same use again the outline */
+  outline: var(--rdp-outline);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp-day_range_end.rdp-day_range_start {
+  border-radius: 100%;
+}
+
+.rdp-day_range_middle {
+  border-radius: 0;
+}
+
+/*!***************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/client/css/react-day-picker.css ***!
+  \***************************************************************************************/
+/* =============================================================================
+
+	react-day-picker.css.
+	Prefix everything with #notion-app to increase the precedence of these rules
+	so they will always override the default CSS regardless of the order in which
+	they are concatenated.
+
+// ========================================================================== */
+
+/* =============================================================================
+	Desktop Styles.
+============================================================================= */
+
+#notion-app .rdp {
+	--rdp-cell-size: 32px;
+	font-size: 14px;
+	margin: 0;
+}
+
+#notion-app .rdp-months {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#notion-app .rdp-button[disabled]:not(.rdp-day_selected) {
+	opacity: 1;
+}
+
+#notion-app .rdp-row {
+	height: 30px;
+}
+
+#notion-app .rdp-day {
+	border-radius: 3px;
+}
+
+#notion-app .rdp-day.rdp-day_range {
+	border-radius: 0;
+}
+
+#notion-app .rdp-day.rdp-day_range.rdp-day_start {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+#notion-app .rdp-day.rdp-day_range.rdp-day_end {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+#notion-app .rdp-day.rdp-day_range.rdp-day_start.rdp-day_end {
+	border-radius: 3px;
+}
+
+#notion-app .rdp-day.rdp-day_outside {
+	color: #8b9898;
+}
+
+#notion-app .rdp-day.rdp-day_disabled {
+	color: #dce0e0;
+	cursor: default;
+}
+
+#notion-app .rdp-day_selected:not(.rdp-day_disabled):not(.rdp-day_outside),
+#notion-app .rdp-day_value:not(.rdp-day_disabled):not(.rdp-day_outside) {
+	background: rgb(45, 170, 219); /* Notion blue */
+	color: #fff;
+}
+
+#notion-app
+	.rdp-day:not(.rdp-day_disabled):not(.rdp-day_selected):not(.rdp-day_value):not(.rdp-day_start):not(.rdp-day_end):hover {
+	background-color: rgba(45, 156, 219, 0.2);
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#notion-app
+	.rdp-day_today:not(.rdp-day_selected):not(.rdp-day_value):not(.rdp-day_start):not(.rdp-day_end) {
+	position: relative;
+	color: white;
+	z-index: 1;
+}
+
+#notion-app .rdp-day_today {
+	color: inherit;
+}
+
+#notion-app
+	.rdp-day_today:not(.rdp-day_selected):not(.rdp-day_value):not(.rdp-day_start):not(.rdp-day_end)::after {
+	content: "";
+	display: block;
+	width: 26px;
+	height: 26px;
+	background: rgb(235, 87, 87);
+	border-radius: 100%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate3d(-50%, -50%, 0);
+	z-index: -1;
+}
+
+#notion-app .rdp-caption_label {
+	font-size: 14px;
+	font-weight: 500;
+}
+
+#notion-app .rdp-head_cell {
+	color: #8b9898;
+	text-transform: none;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+#notion-app .rdp-day {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	line-height: 1.2;
+}
+
+#notion-app .rdp-nav {
+	padding-right: 4px;
+}
+
+#notion-app .rdp-nav_button {
+	border: 0;
+	padding: 6px;
+	border-radius: 3px;
+	width: 24px;
+	height: 24px;
+}
+
+#notion-app .rdp-nav_button:hover {
+	background-color: rgba(55, 53, 47, 0.08);
+}
+
+body.dark #notion-app .rdp-nav_button:hover {
+	background-color: rgba(255, 255, 255, 0.055);
+}
+
+#notion-app .rdp-nav_button:active {
+	background-color: rgba(55, 53, 47, 0.16);
+}
+
+body.dark #notion-app .rdp-nav_button:active {
+	background-color: rgba(255, 255, 255, 0.03);
+}
+
+#notion-app .rdp-nav_icon {
+	color: rgba(55, 53, 47, 0.85);
+}
+
+body.dark #notion-app .rdp-nav_icon {
+	color: rgba(255, 255, 255, 0.443);
+}
+
+#notion-app .rdp-day:not(.rdp-day_disabled):focus-visible,
+#notion-app .rdp-nav_button:focus-visible {
+	outline: none;
+	box-shadow: rgba(35, 131, 226, 0.57) 0px 0px 0px 1px inset,
+		rgba(35, 131, 226, 0.35) 0px 0px 0px 2px;
+	background-color: rgba(45, 156, 219, 0.2);
+}
+
+/* =============================================================================
+	Mobile Styles.
+============================================================================= */
+
+.notion-mobile #notion-app .rdp.notion-date-property-menu {
+	--rdp-cell-size: 50px;
+}
+
+.notion-mobile #notion-app .rdp-cell {
+	height: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+	#notion-app .rdp {
+		--rdp-cell-size: calc(270px / 7); /* Fill available space completely */
+		font-size: 16px;
+	}
+
+	#notion-app .rdp.notion-date-property-menu {
+		margin: 0;
+	}
+
+	#notion-app .rdp-caption_label {
+		font-size: 16px;
+		padding-left: 4%;
+		margin-top: 4px;
+	}
+
+	#notion-app .rdp-head_cell {
+		font-size: 14px;
+	}
+
+	#notion-app .rdp-day {
+		height: 44px;
+	}
+
+	#notion-app
+		.rdp-day_today:not(.rdp-day_selected):not(.rdp-day_value):not(.rdp-day_range)::after {
+		width: 32px;
+		height: 32px;
+	}
+}
+

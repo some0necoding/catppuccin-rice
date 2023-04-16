@@ -1,0 +1,199 @@
+[2023-04-15 18:16:30.711] [info] Checking for update
+[2023-04-15 18:16:30.735] [info] Error reading /home/marco/.config/notion-app/cookies.json {
+  constructor: 'Error',
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: '/home/marco/.config/notion-app/cookies.json',
+  stack: "Error: /home/marco/.config/notion-app/cookies.json: ENOENT: no such file or directory, open '/home/marco/.config/notion-app/cookies.json'\n" +
+    '    at Object.openSync (fs.js:466:3)\n' +
+    '    at Object.func [as openSync] (electron/js2c/asar_bundle.js:5:1812)\n' +
+    '    at Object.readFileSync (fs.js:368:35)\n' +
+    '    at Object.e.readFileSync (electron/js2c/asar_bundle.js:5:8592)\n' +
+    '    at Object.readFileSync (/opt/Notion/resources/app.asar/node_modules/jsonfile/index.js:61:22)\n' +
+    '    at JsonStore.loadSync (/opt/Notion/resources/app.asar/main/JsonStore.js:38:44)\n' +
+    '    at new JsonStore (/opt/Notion/resources/app.asar/main/JsonStore.js:15:14)\n' +
+    '    at Object.<anonymous> (/opt/Notion/resources/app.asar/main/schemeHandler.js:37:25)\n' +
+    '    at Module._compile (internal/modules/cjs/loader.js:1152:30)\n' +
+    '    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1173:10)'
+}
+[2023-04-15 18:16:31.094] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'latestVersionPath',
+  data: {
+    message: 'latestVersion.json path /home/marco/.config/notion-app/notionAssetCache-v2/latestVersion.json'
+  }
+}
+[2023-04-15 18:16:31.099] [error] Error: Error: ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'
+[2023-04-15 18:16:31.099] [info] {
+  level: 'info',
+  from: 'autoUpdater',
+  type: 'unsupportedLinuxApp',
+  error: {
+    name: 'Error',
+    message: "ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'",
+    stack: "Error: ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'"
+  }
+}
+[2023-04-15 18:16:31.101] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'errorReadingPath',
+  error: {
+    name: 'Error',
+    message: "ENOENT: no such file or directory, open '/home/marco/.config/notion-app/notionAssetCache-v2/latestVersion.json'",
+    stack: "Error: ENOENT: no such file or directory, open '/home/marco/.config/notion-app/notionAssetCache-v2/latestVersion.json'"
+  },
+  data: {
+    message: 'Error reading /home/marco/.config/notion-app/notionAssetCache-v2/latestVersion.json'
+  }
+}
+[2023-04-15 18:16:31.101] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'currentVersionLoaded',
+  data: {}
+}
+[2023-04-15 18:16:31.102] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'syncVersionEmptyLatestVersion'
+}
+[2023-04-15 18:16:31.102] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'currentSyncedAssetsJson',
+  data: {}
+}
+[2023-04-15 18:16:31.353] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'appUpdateAvailable',
+  data: { version: '23.12.0.66' }
+}
+[2023-04-15 18:16:36.674] [info] { level: 'info', from: 'AssetCache', type: 'checkingForAppUpdate2' }
+[2023-04-15 18:16:36.674] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'appUpdateDownloadComplete',
+  data: { version: '23.12.0.66' }
+}
+[2023-04-15 18:16:36.674] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'installingAppUpdate',
+  data: { version: '23.12.0.66' }
+}
+[2023-04-15 18:16:42.807] [info] Quitting...
+[2023-04-15 18:16:42.808] [info] Killing child process
+[2023-04-15 18:16:46.516] [info] Checking for update
+[2023-04-15 18:16:46.682] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'latestVersionPath',
+  data: {
+    message: 'latestVersion.json path /home/marco/.config/notion-app/notionAssetCache-v2/latestVersion.json'
+  }
+}
+[2023-04-15 18:16:46.683] [error] Error: Error: ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'
+[2023-04-15 18:16:46.684] [info] {
+  level: 'info',
+  from: 'autoUpdater',
+  type: 'unsupportedLinuxApp',
+  error: {
+    name: 'Error',
+    message: "ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'",
+    stack: "Error: ENOENT: no such file or directory, open '/opt/Notion/resources/app-update.yml'"
+  }
+}
+[2023-04-15 18:16:46.688] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'currentVersionLoaded',
+  data: { version: '23.12.0.66', hash: 'bac2127c9f372647e839a0871fed1050' }
+}
+[2023-04-15 18:16:46.689] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'syncVersions',
+  data: {
+    message: 'Sync versions: assets.json path /home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets.json headers.json path /home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/headers.json'
+  }
+}
+[2023-04-15 18:16:46.694] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'currentSyncedAssetsJson',
+  data: { version: '23.12.0.66' }
+}
+[2023-04-15 18:16:46.934] [info] { level: 'info', from: 'AssetCache', type: 'noAppUpdateAvailable2' }
+[2023-04-15 18:16:46.953] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'syncVersionSameSkippingSync'
+}
+[2023-04-15 18:16:46.954] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest2',
+  data: {
+    message: 'Performing file request: /, abs path /home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/index-en-US-7e67601cb2416cf9fdba.html'
+  }
+}
+[2023-04-15 18:16:47.028] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/1633-f7b6e71273537af55c9a.js',
+    url: '/1633-f7b6e71273537af55c9a.js'
+  }
+}
+[2023-04-15 18:16:47.030] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/app-ad2d9572003d48be614a.js',
+    url: '/app-ad2d9572003d48be614a.js'
+  }
+}
+[2023-04-15 18:16:47.031] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/app-56ad3358fe048b60e541.css',
+    url: '/app-56ad3358fe048b60e541.css'
+  }
+}
+[2023-04-15 18:16:47.032] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/print.5c792172.css',
+    url: '/print.5c792172.css'
+  }
+}
+[2023-04-15 18:16:48.019] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/third-party-scripts-2e9e04e634fde7bdd79c.js',
+    url: '/third-party-scripts-2e9e04e634fde7bdd79c.js'
+  }
+}
+[2023-04-15 18:16:48.105] [info] {
+  level: 'info',
+  from: 'AssetCache',
+  type: 'performingFileRequest',
+  data: {
+    absolutePath: '/home/marco/.config/notion-app/notionAssetCache-v2/23.12.0.66/assets/transport-support-0b602a85195aad344c9a.js',
+    url: '/transport-support-0b602a85195aad344c9a.js'
+  }
+}
+[2023-04-15 18:16:57.662] [info] Quitting...
+[2023-04-15 18:16:57.663] [info] Killing child process

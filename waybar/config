@@ -1,13 +1,11 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 20,
-    "width": 1285,
-    "margin": "2, 0, 0, 0",
+    "margin": "5, 5, 0, 5",
 
     "modules-left": ["custom/launcher", "cpu", "memory", "disk", "network"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/pipewire", "backlight", "battery", "custom/clock", "custom/powermenu"],
+    "modules-right": ["bluetooth", "custom/pipewire", "backlight", "battery", "custom/clock", "custom/powermenu"],
 
     // Module config 
 
@@ -24,7 +22,7 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
-        "format-plugged": "  {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": [" ", " ", " ", " ", " "]
     },
@@ -35,7 +33,8 @@
         "format-on": "",
         "format-connected": " {device_alias}",
         "format-connected-battery": " {device_alias}  {device_battery_percentage}%",
-        "tooltip": false
+		"on-click": "bluedevil-wizard",
+		"tooltip": false
     },
 
     "clock": {

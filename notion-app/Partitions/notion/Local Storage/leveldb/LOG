@@ -1,0 +1,8 @@
+2023/04/15-18:16:46.631 1befa2 Reusing MANIFEST /home/marco/.config/notion-app/Partitions/notion/Local Storage/leveldb/MANIFEST-000001
+2023/04/15-18:16:46.631 1befa2 Recovering log #3
+2023/04/15-18:16:46.632 1befa2 Level-0 table #3: started
+2023/04/15-18:16:46.681 1befa2 Level-0 table #3: 147378 bytes OK
+2023/04/15-18:16:46.682 1befa2 Recovering log #4
+2023/04/15-18:16:46.682 1befa2 Reusing old log /home/marco/.config/notion-app/Partitions/notion/Local Storage/leveldb/000004.log 
+2023/04/15-18:16:46.737 1befa2 Delete type=0 #3
+2023/04/15-18:16:46.737 1befa2 Delete type=2 #5

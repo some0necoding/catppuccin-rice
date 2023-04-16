@@ -36,7 +36,6 @@ return require('packer').startup(function(use)
 	-- autocomplete plugins
 	use {
 		'neovim/nvim-lspconfig',	-- LSP config
-
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
