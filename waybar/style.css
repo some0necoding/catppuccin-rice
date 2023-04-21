@@ -1,8 +1,8 @@
 * {
     transition: none;
     box-shadow: none;
-    font-family: "Fira Code", regular;
-	font-size: 10px;
+    font-family: "FiraCode", regular;
+	font-size: 14px;
 	color: #f2f2f2;
 }
 
@@ -12,38 +12,23 @@
     border: none;
 }
 
-#custom-workspaces {
-    margin: 4px 2px;
-    padding: 0px 8px;
-    border-radius: 20px;
-    min-width: 8px;
+#workspaces, #window, #network, #wireplumber, #backlight, #battery, #custom-pipewire, #custom-clock, #custom-powermenu {
+    margin: 0px 2px;
+    padding: 0px 12px;
+    border-radius: 15px;
+    min-width: 12px;
     background-color: #32363d;
 }
 
-#battery, #bluetooth, #cpu, #disk, #memory, #network, #backlight, #window, #custom-pipewire, #custom-clock {
-    margin: 4px 2px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    min-width: 8px;
-    background-color: #32363d;
+#workspaces button:hover {
+	background: #626880;
+	border: 1px solid #626880;
 }
 
 #custom-powermenu {
-    margin: 4px 5px 4px 1px;
-    padding: 0 6px;
     background-color: #e64553;
-    border-radius: 10px;
-    min-width: 15px;
 }
   
-#custom-launcher {
-    margin: 4px 1px 4px 5px;
-    padding: 0 6px;
-    background-color: #e64553;
-    border-radius: 10px;
-    min-width: 15px;
-}
-
 #battery.warning {
     color: #e5c07a
 } 

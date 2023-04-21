@@ -1,18 +1,60 @@
 {
     "layer": "top",
     "position": "top",
-    "margin": "5, 5, 0, 5",
+    "margin": "10, 8, 0, 8",
 
-    "modules-left": ["custom/launcher", "cpu", "memory", "disk", "network"],
+    "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["bluetooth", "custom/pipewire", "backlight", "battery", "custom/clock", "custom/powermenu"],
+    "modules-right": ["network", "wireplumber", "backlight", "battery", "custom/clock", "custom/powermenu"],
 
     // Module config 
 
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["","","","", "", "", ""],
-        "min-length": 7
+	"wlr/workspaces": {
+		"format": "<span font='16'>{icon}</span>",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		},
+		"sort-by-number": true,
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+		},
+		//"on-click": "activate", // crashes
+	},
+
+    "network": {
+        "tooltip": true,
+        "interval": 30,
+		"format": "<span font='16'></span>",
+        "format-wifi": "<span font='20'></span>",
+        "format-ethernet": "<span font='16'></span>",
+        "format-disconnected": "<span font='16'></span>",
+        "tooltip-format": "LINK: {ifname}\nIP: {ipaddr}/{cidr}\nSPEED: {bandwidthTotalBytes}",
+    },
+
+	"network#vpn": {
+        "interface": "tun0",
+        "format": "<span font='16'></span>",
+    },
+
+	"wireplumber": {
+		"format": "<span font='20'>{icon}</span> <span rise='+3500'>{volume}%</span>",
+		"format-muted": "",
+		"format-icons": ["", "", ""],
+	},
+
+   "backlight": {
+        "format": "<span font='18' >{icon}</span> <span rise='+3000'>{percent}%</span>",
+        "format-icons": ["", "", "", ""],
+        "min-length": 4,
+		"tooltip": false,
+
     },
 
     "battery": {
@@ -20,90 +62,25 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-icons": [" ", " ", " ", " ", " "]
-    },
-
-    "bluetooth": {
-        "format-disabled": "",
-        "format-off": "",
-        "format-on": "",
-        "format-connected": " {device_alias}",
-        "format-connected-battery": " {device_alias}  {device_battery_percentage}%",
-		"on-click": "bluedevil-wizard",
-		"tooltip": false
-    },
-
-    "clock": {
-        "format": " {:%H:%M}",
-        "tooltip": false,
-    },
-
-    "cpu": {
-        "interval": 30,
-        "format": " {usage}%",
-        "min-length": 7
-    },
-
-    "disk": {
-        "interval": 30,
-        "format": " {percentage_used}%",
-        "path": "/"
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "min-length": 7
-    },
-
-    "network": {
-        "tooltip": true,
-        "interval": 30,
-		"format": "",
-        "format-wifi": "",
-        "format-ethernet": "",
-        "format-disconnected": "",
-        "tooltip-format": "LINK: {ifname}\nIP: {ipaddr}/{cidr}\nSPEED: {bandwidthTotalBytes}",
-        "on-click": "connman-gtk"
-    },
-
-    "network#vpn": {
-        "interface": "tun0",
-        "format": ""
+        "format": "<span font='20'>{icon}</span> <span rise='+4000'>{capacity}%</span>",
+        "format-charging": "<span font='10' rise='-2500'></span> <span rise='-2500'>{capacity}%</span>",
+        "format-plugged": "<span font='20'></span> <span rise='+4000'>{capacity}%</span>",
+        "format-alt": "<span font='20'>{icon}</span> <span rise='+4000'>{time}</span>",
+        "format-icons": ["", "", "", "", ""],
     },
 
     // Custom modules
 
-    "custom/pipewire": {
-		"format": "{}",
-		"tooltip": false,
-		"max-length": 6,
-		"exec": "$HOME/.config/waybar/scripts/pipewire.sh",
-		"on-click": "pavucontrol",
-		"on-click-right": "qpwgraph" 
-	},
-
 	"custom/clock": {
-		"format": " {}",
+		"format": "<span font='16'></span> <span rise='+2500'>{}</span>",
 		"exec": "date +%H:%M",
+		"interval": 5,
 		"tooltip": false,
-		"interval": 5
 	},
-
-	"custom/launcher": {
-        "format": "",
-        "on-click": "wofi",
-        "tooltip": false
-    },
 
     "custom/powermenu": {
-        "format": "",
+        "format": "<span font='16'></span>",
         "on-click": "~/.config/wofi/scripts/powermenu.sh &",
-        "on-click-right": "~/.config/wofi/scripts/powermenu.sh &",
-        "tooltip": false
+        "tooltip": false,
     },
 }
