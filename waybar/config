@@ -5,7 +5,7 @@
 
     "modules-left": ["wlr/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "wireplumber", "backlight", "battery", "custom/clock", "custom/powermenu"],
+    "modules-right": ["network", "wireplumber", "backlight", "battery", "clock", "custom/powermenu"],
 
     // Module config 
 
@@ -69,14 +69,14 @@
         "format-icons": ["", "", "", "", ""],
     },
 
-    // Custom modules
-
-	"custom/clock": {
-		"format": "<span font='16'></span> <span rise='+2500'>{}</span>",
-		"exec": "date +%H:%M",
+	"clock": {
 		"interval": 5,
-		"tooltip": false,
+		"format": "<span font='16'></span> <span rise='+2500'>{:%H:%M}</span>",
+		"tooltip": true,
+		"tooltip-format": "<span font='16'></span> <span rise='+2500'>{:%A %d %B %Y}</span>"
 	},
+
+    // Custom modules
 
     "custom/powermenu": {
         "format": "<span font='16'></span>",

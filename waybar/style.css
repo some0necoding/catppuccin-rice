@@ -12,7 +12,19 @@
     border: none;
 }
 
-#workspaces, #window, #network, #wireplumber, #backlight, #battery, #custom-pipewire, #custom-clock, #custom-powermenu {
+tooltip {
+	border-radius: 15px;
+	border: 2px solid #232634;
+	background: #ef9f76;
+}
+
+tooltip label {
+	color: #232634;
+	padding: 0px 4px;
+	text-shadow: none;
+}
+
+#workspaces, #window, #network, #wireplumber, #backlight, #battery, #custom-pipewire, #clock, #custom-powermenu {
     margin: 0px 2px;
     padding: 0px 12px;
     border-radius: 15px;
