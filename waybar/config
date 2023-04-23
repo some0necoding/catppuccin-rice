@@ -25,17 +25,17 @@
 			"6": [],
 			"7": [],
 		},
-		//"on-click": "activate", // crashes
 	},
 
     "network": {
+		"format-zero": "<span font='20'></span>",
         "tooltip": true,
         "interval": 30,
 		"format": "<span font='16'></span>",
         "format-wifi": "<span font='20'></span>",
         "format-ethernet": "<span font='16'></span>",
         "format-disconnected": "<span font='16'></span>",
-        "tooltip-format": "LINK: {ifname}\nIP: {ipaddr}/{cidr}\nSPEED: {bandwidthTotalBytes}",
+        "tooltip-format": "{essid}",
     },
 
 	"network#vpn": {
@@ -45,8 +45,9 @@
 
 	"wireplumber": {
 		"format": "<span font='20'>{icon}</span> <span rise='+3500'>{volume}%</span>",
-		"format-muted": "",
+		"format-muted": "<span font='20'></span>",
 		"format-icons": ["", "", ""],
+		"on-click": "wpctl set-mute $(~/.config/hypr/scripts/default-sink-id.py) toggle"
 	},
 
    "backlight": {
