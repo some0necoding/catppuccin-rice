@@ -18,6 +18,10 @@ tooltip {
 	background: #ef9f76;
 }
 
+tooltip * {
+	border-radius: 15px;
+}
+
 tooltip label {
 	color: #232634;
 	padding: 0px 4px;
