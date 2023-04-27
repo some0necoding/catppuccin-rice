@@ -3,13 +3,13 @@ window {
 	border-radius: 6px;
 	border: 1.5px solid #ef9f76;
 	background-color: #232634;
-	font-size: 12;
+	font-size: 16;
 }
 
 #input {
 	margin: 5px;
 	border: none;
-	border-radius: 3px;
+	border-radius: 25px;
 	color: #292c3c;
 	background-color: #ef9f76;
 }
@@ -44,6 +44,6 @@ window {
 #entry:selected {
 	border: 2px solid #fff;
 	background-color: transparent;
-	border-radius: 3px;
+	border-radius: 25px;
 	color: #fff;
 }

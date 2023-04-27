@@ -4,6 +4,7 @@ local set = vim.opt
 
 set.hlsearch = true				-- highlight search
 set.incsearch = true			-- incremental search
+set.expandtab = true			-- use spaces instead of tabs
 set.tabstop = 4					-- tab width
 set.softtabstop = 4				-- see multiple spaces as tabstops so <BS> does the right thing
 set.shiftwidth = 4				-- width for autoindents

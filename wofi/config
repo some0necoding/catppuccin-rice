@@ -8,7 +8,7 @@
 
 width=360
 height=220
-mode=drun,run
+mode=drun
 
 location=center
 
