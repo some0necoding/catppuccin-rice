@@ -1,6 +1,8 @@
 swaylock -enf \
-	-i ~/.config/wallpapers/vectorial_light.jpg \
+	-i ~/.config/wallpapers/background.jpg \
 	--indicator-idle-visible \
+    --indicator-radius 100 \
+    --indicator-thickness 14 \
 	--inside-color 232634 \
 	--inside-clear-color e5c890 \
 	--inside-ver-color ef9f76 \
@@ -13,5 +15,3 @@ swaylock -enf \
 	--text-clear-color 51576d \
 	--text-ver-color 51576d \
 	--clock
-
-a6d189
