@@ -1,23 +1,23 @@
-user: 255
-group: 255
+user: 218
+group: 218
 permission:
-  read: 197
-  write: 199
-  exec: 201
+  read: 213
+  write: 177
+  exec: 210
   exec-sticky: 5
   no-access: 245
   octal: 6
   acl: dark_cyan
   context: cyan
 date:
-  hour-old: 73
-  day-old: 73
-  older: 73
+  hour-old: 216
+  day-old: 216
+  older: 216
 size:
   none: 15
-  small: 201
-  medium: 199
-  large: 197
+  small: 213
+  medium: 177
+  large: 210
 inode:
   valid: 13
   invalid: 245
