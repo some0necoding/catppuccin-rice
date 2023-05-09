@@ -6,6 +6,8 @@ return require('packer').startup(function(use)
 
 	use 'wbthomason/packer.nvim'
 
+    use 'nvim-treesitter/nvim-treesitter'   -- treesitter
+
 	-- file explorer plugins
 	use {
 		'nvim-tree/nvim-tree.lua',
@@ -30,6 +32,7 @@ return require('packer').startup(function(use)
 	use 'kdheepak/lazygit.nvim'		-- git integration
 	use 'echasnovski/mini.nvim'
 	use 'windwp/nvim-autopairs'		-- auto closing brackets
+	use 'windwp/nvim-ts-autotag'	-- auto closing html tags
 
 	-- TODO: golang workflow plugins
 	

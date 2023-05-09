@@ -1,7 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/marco/coding/mern/projects/pidash
+- /home/marco/coding/c++/projects/bfssh
 - /home/marco/coding/c++/basics/hangman
-- /mnt/disk/@home/marco/coding/ansible/homeserver
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
