@@ -11,6 +11,7 @@ require('plugins')
 
 -- setup plugins
 require('alpha-setup')
+require('pets-setup')
 require('nvim-tree-setup')
 require('nvim-autopairs-setup')
 require('nvim-ts-autotag-setup')

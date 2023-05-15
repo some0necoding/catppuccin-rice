@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["hologram.nvim"] = {
+    loaded = true,
+    path = "/home/marco/.local/share/nvim/site/pack/packer/start/hologram.nvim",
+    url = "https://github.com/giusgad/hologram.nvim"
+  },
   ["kanagawa.nvim"] = {
     loaded = true,
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
@@ -158,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/nord.nvim",
     url = "https://github.com/shaunsingh/nord.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/marco/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   nvim = {
     loaded = true,
@@ -203,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["pets.nvim"] = {
+    loaded = true,
+    path = "/home/marco/.local/share/nvim/site/pack/packer/start/pets.nvim",
+    url = "https://github.com/giusgad/pets.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,

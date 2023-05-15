@@ -14,6 +14,14 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-tree/nvim-web-devicons' },
 	}
 
+    use {
+        "giusgad/pets.nvim",
+        requires = {
+            "giusgad/hologram.nvim",
+            "MunifTanjim/nui.nvim",
+        }
+    }
+
 	-- greeter plugins
 	use {
 		'goolord/alpha-nvim',
