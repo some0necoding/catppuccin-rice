@@ -1,17 +1,28 @@
 swaylock -enf \
 	-i ~/.config/wallpapers/background.jpg \
 	--indicator-idle-visible \
-    --indicator-radius 100 \
+    --indicator-radius 200 \
     --indicator-thickness 14 \
-	--inside-color 232634 \
-	--inside-clear-color e5c890 \
-	--inside-ver-color ef9f76 \
-	--key-hl-color ef9f76 \
-	--ring-color 8caaee	\
-	--ring-clear-color ef9f76 \
-	--ring-ver-color ef9f76 \
-	--separator-color ef9f76 \
-	--text-color 8caaee	\
-	--text-clear-color 51576d \
-	--text-ver-color 51576d \
-	--clock
+	--inside-color 23263400 \
+	--inside-clear-color 00000000 \
+    --inside-caps-lock-color 00000000 \
+	--inside-ver-color 00000000 \
+    --inside-wrong-color 00000000 \
+	--key-hl-color c6d0f5ff \
+	--ring-color 00000000 \
+	--ring-clear-color 00000000 \
+    --ring-caps-lock-color 00000000 \
+	--ring-ver-color 00000000 \
+    --ring-wrong-color 00000000 \
+	--separator-color 00000000 \
+	--text-color c6d0f5ff \
+	--text-clear-color c6d0f5ff \
+    --text-caps-lock-color e78284ff \
+	--text-ver-color c6d0f5ff \
+    --text-wrong-color e78284ff \
+	--clock \
+    --timestr %R \
+    --datestr "" \
+    --fade-in 0.2 \
+    --font-size 130 \
+    --effect-blur 4x3
