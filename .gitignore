@@ -19,3 +19,5 @@ systemd/
 Thunar/
 xfce4/
 xsettingsd/
+QtProject.conf
+VirtualBox/
