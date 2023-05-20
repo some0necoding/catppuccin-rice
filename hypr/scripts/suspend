@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ac_adapter_status=$(acpi -a | grep -oE "(on|off)-line")
+
+if [[ $ac_adapter_status == "off-line" ]] && {
+    systemctl suspend
+}
