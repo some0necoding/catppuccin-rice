@@ -1,3 +1,5 @@
+#!/bin/bash
+
 swaylock -enf \
 	-i ~/.config/wallpapers/background.jpg \
 	--indicator-idle-visible \
