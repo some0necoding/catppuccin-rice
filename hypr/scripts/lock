@@ -5,7 +5,7 @@ swaylock -enf \
 	--indicator-idle-visible \
     --indicator-radius 200 \
     --indicator-thickness 14 \
-	--inside-color 23263400 \
+	--inside-color 00000000 \
 	--inside-clear-color 00000000 \
     --inside-caps-lock-color 00000000 \
 	--inside-ver-color 00000000 \
