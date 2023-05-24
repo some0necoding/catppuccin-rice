@@ -1,0 +1,54 @@
+* {
+    transition: none;
+    box-shadow: none;
+    font-family: "FiraCode", regular;
+	font-size: 14px;
+	color: #f2f2f2;
+}
+
+#waybar {
+	background: transparent;
+    border-radius: 10px;
+    border: none;
+}
+
+tooltip {
+	border-radius: 15px;
+	border: 2px solid #232634;
+	background: #ef9f76;
+}
+
+tooltip * {
+	border-radius: 15px;
+}
+
+tooltip label {
+	color: #232634;
+	padding: 0px 4px;
+	text-shadow: none;
+}
+
+#workspaces, #window, #network, #wireplumber, #backlight, #battery, #custom-pipewire, #clock, #custom-powermenu {
+    margin: 0px 2px;
+    padding: 0px 12px;
+    border-radius: 15px;
+    min-width: 12px;
+    background-color: #32363d;
+}
+
+#workspaces button:hover {
+	background: #626880;
+	border: 1px solid #626880;
+}
+
+#custom-powermenu {
+    background-color: #e64553;
+}
+  
+#battery.warning {
+    color: #e5c07a
+} 
+
+#battery.critical {
+    color: #ff0055
+}

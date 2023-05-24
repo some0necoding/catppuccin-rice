@@ -1,0 +1,87 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": "10, 8, 0, 8",
+
+    "modules-left": ["wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["network", "wireplumber", "backlight", "battery", "clock", "custom/powermenu"],
+
+    // Module config 
+
+	"wlr/workspaces": {
+		"format": "<span font='16'>{icon}</span>",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		},
+		"sort-by-number": true,
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+		},
+	},
+
+    "network": {
+		"format-zero": "<span font='20'></span>",
+        "tooltip": true,
+        "interval": 30,
+		"format": "<span font='16'></span>",
+        "format-wifi": "<span font='20'></span>",
+        "format-ethernet": "<span font='16'></span>",
+        "format-disconnected": "<span font='16'></span>",
+        "tooltip-format": "{essid}",
+    },
+
+	"network#vpn": {
+        "interface": "tun0",
+        "format": "<span font='16'></span>",
+    },
+
+	"wireplumber": {
+		"format": "<span font='20'>{icon}</span> <span rise='+3500'>{volume}%</span>",
+		"format-muted": "<span font='20'></span>",
+		"format-icons": ["", "", ""],
+		"on-click": "wpctl set-mute $(~/.config/hypr/scripts/default-sink-id.py) toggle"
+	},
+
+   "backlight": {
+        "format": "<span font='18' >{icon}</span> <span rise='+3000'>{percent}%</span>",
+        "format-icons": ["", "", "", ""],
+        "min-length": 4,
+		"tooltip": false,
+
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "<span font='20'>{icon}</span> <span rise='+4000'>{capacity}%</span>",
+        "format-charging": "<span font='10' rise='-2500'></span> <span rise='-2500'>{capacity}%</span>",
+        "format-plugged": "<span font='20'></span> <span rise='+4000'>{capacity}%</span>",
+        "format-alt": "<span font='20'>{icon}</span> <span rise='+4000'>{time}</span>",
+        "format-icons": ["", "", "", "", ""],
+    },
+
+	"clock": {
+		"interval": 5,
+		"format": "<span font='16'></span> <span rise='+2500'>{:%H:%M}</span>",
+		"tooltip": true,
+		"tooltip-format": "<span font='16'></span> <span rise='+2500'>{:%A %d %B %Y}</span>"
+	},
+
+    // Custom modules
+
+    "custom/powermenu": {
+        "format": "<span font='16'></span>",
+        "on-click": "~/.config/wofi/scripts/powermenu.sh &",
+        "tooltip": false,
+    },
+}

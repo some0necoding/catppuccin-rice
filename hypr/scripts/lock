@@ -1,0 +1,30 @@
+#!/bin/bash
+
+swaylock -enf \
+	-i ~/.config/wallpapers/background.jpg \
+	--indicator-idle-visible \
+    --indicator-radius 200 \
+    --indicator-thickness 14 \
+	--inside-color 00000000 \
+	--inside-clear-color 00000000 \
+    --inside-caps-lock-color 00000000 \
+	--inside-ver-color 00000000 \
+    --inside-wrong-color 00000000 \
+	--key-hl-color c6d0f5ff \
+	--ring-color 00000000 \
+	--ring-clear-color 00000000 \
+    --ring-caps-lock-color 00000000 \
+	--ring-ver-color 00000000 \
+    --ring-wrong-color 00000000 \
+	--separator-color 00000000 \
+	--text-color c6d0f5ff \
+	--text-clear-color c6d0f5ff \
+    --text-caps-lock-color e78284ff \
+	--text-ver-color c6d0f5ff \
+    --text-wrong-color e78284ff \
+	--clock \
+    --timestr %R \
+    --datestr "" \
+    --fade-in 0.2 \
+    --font-size 130 \
+    --effect-blur 4x3
