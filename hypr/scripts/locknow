@@ -23,7 +23,6 @@ swaylock -enf \
 	--text-ver-color c6d0f5ff \
     --text-wrong-color e78284ff \
 	--clock \
-    --grace 5 \
     --timestr %R \
     --datestr "" \
     --fade-in 0.2 \
