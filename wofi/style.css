@@ -1,6 +1,6 @@
 window {
 	margin: 0px;
-	border-radius: 6px;
+	border-radius: 25px;
 	border: 1.5px solid #ef9f76;
 	background-color: #232634;
 	font-size: 16;
@@ -26,7 +26,9 @@ window {
 
 #outer-box {
 	margin: 5px;
+    margin-bottom: 10px;
 	border: none;
+    border-radius: 25px;
 	background-color: #232634;
 }
 

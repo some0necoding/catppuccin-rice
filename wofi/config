@@ -16,3 +16,4 @@ prompt=
 
 show_all=false
 print_line_num=true
+allow_images=true
