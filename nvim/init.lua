@@ -3,6 +3,9 @@
 -- options
 require('vimoptions')
 
+-- autocmds
+require('autocmds')
+
 -- color mode
 require('theme').set('dark')
 
@@ -46,6 +49,10 @@ key.map("n", "<C-w>", ":bd<CR>")
 key.map("n", 'd$', '"_d$')
 key.map("n", 'dw', '"_dw')
 key.map("n", 'x', '"_x')
+
+-- telescope search
+key.map("n", 'ff', ':Telescope find_files<CR>')
+key.map("n", 'fg', ':Telescope live_grep<CR>')
 
 -- vim jump to the last position when reopening a file
 require('rememberline')
