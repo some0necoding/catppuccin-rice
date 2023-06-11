@@ -2,12 +2,13 @@
 
 local setlocal = vim.opt_local
 
--- make folds persistent
+-- make folds persistent: save folds when closing buffers
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
     pattern = { "*.*" },
     command = "mkview"
 })
 
+-- make folds persistent: restore folds when opening buffers
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     pattern = { "*.*" },
     command = "silent loadview"
