@@ -16,6 +16,7 @@ set.cursorline = true			-- show line number on which the cursor is
 set.clipboard = "unnamedplus"	-- using system clipboard
 set.ttyfast = true				-- speed up scrolling in vim
 set.completeopt = "menu,menuone,noselect"
+set.foldmethod = "manual"
 
 -- open new split panes to right and below
 set.splitright = true

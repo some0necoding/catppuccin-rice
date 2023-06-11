@@ -1,9 +1,19 @@
 -- autocmds.lua
 
-local set = vim.opt
 local setlocal = vim.opt_local
 
--- configure c-style programming languages' files
+-- make folds persistent
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+    pattern = { "*.*" },
+    command = "mkview"
+})
+
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+    pattern = { "*.*" },
+    command = "silent loadview"
+})
+
+-- configure c development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.c", "*.h", "*.cpp", "*.hpp", "*.go", },
     callback = function()
@@ -11,12 +21,12 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     end,
 })
 
--- configure web development files
+-- configure web development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.html", "*.css", "*.js", "*.ts", "*.jsx", "*.tsx" },
     callback = function()
-        set.tabstop = 2					-- tab width
-        set.softtabstop = 2				-- see multiple spaces as tabstops so <BS> does the right thing
-        set.shiftwidth = 2				-- width for autoindents
+        setlocal.tabstop = 2					-- tab width
+        setlocal.softtabstop = 2				-- see multiple spaces as tabstops so <BS> does the right thing
+        setlocal.shiftwidth = 2				    -- width for autoindents
     end,
 })
