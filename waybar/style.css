@@ -1,15 +1,15 @@
 * {
-    transition: none;
-    box-shadow: none;
-    font-family: "FiraCode", regular;
+  transition: none;
+  box-shadow: none;
+  font-family: "FiraCode", regular;
 	font-size: 14px;
 	color: #f2f2f2;
 }
 
 #waybar {
 	background: transparent;
-    border-radius: 10px;
-    border: none;
+  border-radius: 10px;
+  border: none;
 }
 
 tooltip {
@@ -29,11 +29,11 @@ tooltip label {
 }
 
 #workspaces, #window, #network, #wireplumber, #backlight, #battery, #custom-pipewire, #clock, #custom-powermenu {
-    margin: 0px 2px;
-    padding: 0px 12px;
-    border-radius: 15px;
-    min-width: 12px;
-    background-color: #32363d;
+  margin: 0px 2px;
+  padding: 0px 12px;
+  border-radius: 15px;
+  min-width: 12px;
+  background-color: #32363d;
 }
 
 #workspaces button:hover {
@@ -42,13 +42,13 @@ tooltip label {
 }
 
 #custom-powermenu {
-    background-color: #e64553;
+  background-color: #e64553;
 }
   
 #battery.warning {
-    color: #e5c07a
+  color: #e5c07a
 } 
 
 #battery.critical {
-    color: #ff0055
+  color: #ff0055
 }
