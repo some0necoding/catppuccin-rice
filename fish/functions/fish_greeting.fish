@@ -1,4 +1,4 @@
 function fish_greeting
 	echo $(fish -v)
-	neofetch
+    #neofetch
 end
