@@ -36,10 +36,10 @@ tooltip label {
   background-color: #32363d;
 }
 
-#workspaces button:hover {
+/*#workspaces button:hover {
 	background: #626880;
 	border: 1px solid #626880;
-}
+}*/
 
 #custom-powermenu {
   background-color: #e64553;
