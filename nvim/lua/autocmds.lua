@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- configure web development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "*.html", "*.css", "*.js", "*.ts", "*.jsx", "*.tsx" },
+    pattern = { "*.html", "*.css", "*.scss", "*.js", "*.ts", "*.jsx", "*.tsx", "*.yuck" },
     callback = function()
         setlocal.tabstop = 2					-- tab width
         setlocal.softtabstop = 2				-- see multiple spaces as tabstops so <BS> does the right thing
