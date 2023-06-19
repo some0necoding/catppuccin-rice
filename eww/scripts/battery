@@ -1,0 +1,40 @@
+#!/bin/bash
+
+battery="/sys/class/power_supply/BAT0"
+power="/sys/class/power_supply/AC"
+
+function percent() {
+    charge_full=$(cat ${battery}/charge_full)
+    charge_now=$(cat ${battery}/charge_now)
+
+    percentage=$(( (100 * $charge_now) / $charge_full ))
+    echo $percentage
+}
+
+function status() {
+    echo $(cat ${power}/online)
+}
+
+function icon() {
+    local percent=$(percent)
+
+    if (( $percent <= 20 )); then
+        echo "" 
+    elif (( $percent <= 40 )); then
+        echo "" 
+    elif (( $percent <= 60 )); then
+        echo "" 
+    elif (( $percent <= 80 )); then
+        echo ""
+    elif (( $percent <= 100 )); then
+        echo ""
+    fi
+}
+
+if [[ -n $1 && $1 == "percent" ]]; then
+    echo $(percent) 
+elif [[ -n $1 && $1 == "status" ]]; then
+    echo $(status) 
+elif [[ -n $1 && $1 == "icon" ]]; then
+    echo $(icon) 
+fi
