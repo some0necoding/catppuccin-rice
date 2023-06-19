@@ -1,0 +1,11 @@
+(defwidget volume []
+  (box
+    :class "volume"
+    (label
+      :text "${volume-icon} ${volume-percent}%"
+    )
+  )
+)
+
+(defpoll volume-icon :interval "1s" "scripts/volume icon")
+(defpoll volume-percent :interval "0.1s" "scripts/volume percent")

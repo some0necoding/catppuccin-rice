@@ -1,5 +1,6 @@
 (include "./widgets/battery.yuck")
 (include "./widgets/brightness.yuck")
+(include "./widgets/volume.yuck")
 
 (defwidget left []
   (label :class "left"
@@ -23,9 +24,7 @@
     (label :class "wifi"
            :text "wifi"
     )
-    (label :class "volume"
-           :text "volume"
-    )
+    (volume)
     (brightness)
     (bat)
   )
