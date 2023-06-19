@@ -1,0 +1,58 @@
+(include "./widgets/battery.yuck")
+(include "./widgets/brightness.yuck")
+
+(defwidget left []
+  (label :class "left"
+         :halign "start"
+         :text "workspaces"
+  )
+)
+
+(defwidget center []
+  (box 
+    :class "center"
+    time
+  )
+)
+
+(defwidget right []
+  (box
+    :class "right"
+    :halign "end"
+    :space-evenly false
+    (label :class "wifi"
+           :text "wifi"
+    )
+    (label :class "volume"
+           :text "volume"
+    )
+    (brightness)
+    (bat)
+  )
+)
+
+(defwidget bar []
+  (centerbox
+    :class "bar"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwindow bar
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "12px"
+                        :width "99%"
+                        :height "38px"
+                        :anchor "top center")
+    :stacking "fg"
+    :exclusive true 
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    (bar)
+)
+
+(defpoll time :interval "1s" "date '+%H:%M'")
