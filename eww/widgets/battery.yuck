@@ -1,0 +1,11 @@
+(defwidget bat []
+  (box
+    :class {battery-percent > 20 ? "battery" : "battery-low"}
+    (label
+      :text "${battery-icon}  ${battery-percent}%"
+    )
+  )
+)
+
+(defpoll battery-icon :interval "1s" "scripts/battery icon")
+(defpoll battery-percent :interval "1s" "scripts/battery percent")
