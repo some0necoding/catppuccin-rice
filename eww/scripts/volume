@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function get_sink_id() {
+    echo $(~/.config/hypr/scripts/default-sink-id)
+}
+
+function percent() {
+    volume=$(wpctl get-volume $(get_sink_id) | awk '{ print $2 }')
+    percent=$(echo - | awk "{print $volume * 100}")
+    echo $percent
+}
+
+function icon() {
+    local volume=$(percent)
+
+    if (( $volume <= 33 )); then
+        echo ""
+    elif (( $volume <= 66 )); then
+        echo ""
+    elif (( $volume <= 100 )); then
+        echo ""
+    fi
+}
+
+if [[ -n $1 && $1 == "percent" ]]; then
+    echo $(percent)
+elif [[ -n $1 && $1 == "icon" ]]; then
+    echo $(icon)
+fi
