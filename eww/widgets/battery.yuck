@@ -1,8 +1,12 @@
 (defwidget bat []
   (box
-    :class {battery-percent > 20 ? "battery" : "battery-low"}
+    :class "battery"
     (label
-      :text "${battery-icon}  ${battery-percent}%"
+      :class "battery-icon"
+      :text "${battery-icon} "
+    )
+    (label
+      :text "${battery-percent}%"
     )
   )
 )
