@@ -29,7 +29,7 @@
     )
     (label
       :class "${active == 7 ? "icon-active" : "icon"}"
-      :text "${icon}"}
+      :text "${icon}"
     )
   )
 )
