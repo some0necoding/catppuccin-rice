@@ -1,8 +1,13 @@
 (defwidget volume []
   (box
     :class "${volume-muted == "true" ? "volume-muted" : "volume"}"
+    :space-evenly false
     (label
-      :text "${volume-muted == "true" ? "${volume-icon}" : "${volume-icon} ${volume-percent}%"}"
+      :class "${volume-muted == "true" ? "volume-icon-muted" : "volume-icon"}"
+      :text "${volume-icon}"
+    )
+    (label
+      :text "${volume-muted == "true" ? "" : "${volume-percent}%"}"
     )
   )
 )
