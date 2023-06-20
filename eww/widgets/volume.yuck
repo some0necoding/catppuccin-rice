@@ -7,6 +7,6 @@
   )
 )
 
-(defpoll volume-icon :interval "1s" "scripts/volume icon")
+(defpoll volume-icon :interval "0.1s" "scripts/volume icon")
 (defpoll volume-percent :interval "0.1s" "scripts/volume percent")
-(defpoll volume-muted :interval "1s" "scripts/volume muted")
+(defpoll volume-muted :interval "0.1s" "scripts/volume muted")
