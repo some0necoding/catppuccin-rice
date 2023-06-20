@@ -36,9 +36,9 @@ function icon() {
 
     if [[ $status == "powered" ]]; then
         echo "󰂲"
-    if [[ $status == "disconnected" ]]; then
+    elif [[ $status == "disconnected" ]]; then
         echo "󰂯"
-    if [[ $status == "connected" ]]; then
+    elif [[ $status == "connected" ]]; then
         echo "󰂱"
     fi
 }
@@ -51,4 +51,6 @@ elif [[ -n $1 && $1 == "connected" ]]; then
     echo $(connected)
 elif [[ -n $1 && $1 == "device" ]]; then
     echo $(connected_device)
+elif [[ -n $1 && $1 == "icon" ]]; then
+    echo $(icon)
 fi
