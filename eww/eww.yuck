@@ -3,11 +3,13 @@
 (include "./widgets/volume.yuck")
 (include "./widgets/wifi.yuck")
 (include "./widgets/bluetooth.yuck")
+(include "./widgets/workspaces.yuck")
 
 (defwidget left []
-  (label :class "left"
-         :halign "start"
-         :text "workspaces"
+  (box 
+    :class "left"
+    :halign "start"
+    (workspaces) 
   )
 )
 

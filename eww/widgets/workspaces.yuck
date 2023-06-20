@@ -1,0 +1,38 @@
+(defwidget workspaces []
+  (box
+    :class "workspaces"
+    :orientation "horizontal"
+    :space-evenly false
+    (label
+      :class "${active == 1 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 2 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 3 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 4 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 5 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 6 ? "icon-active" : "icon"}"
+      :text "${icon}" 
+    )
+    (label
+      :class "${active == 7 ? "icon-active" : "icon"}"
+      :text "${icon}"}
+    )
+  )
+)
+
+(defpoll icon :interval "0.1s" "scripts/workspaces icon")
+(defpoll active :interval "0.1s" "scripts/workspaces active")

@@ -6,9 +6,27 @@
 }
 
 .left {
+  border-radius: 12px;
+  background: transparent;
+}
+
+.workspaces {
+  font-size: 18px;
   padding: 0px 12px;
+  padding-right: 16px;
   border-radius: 12px;
   background: #232634;
+}
+
+.icon,
+.icon-active {
+  padding: 0px 6px;
+  background: transparent;
+  color: #c6d0f5;
+}
+
+.icon-active {
+  color: #8839ef;
 }
 
 .center {
@@ -46,6 +64,11 @@
   margin: 0px 4px;
   border-radius: 12px;
   background: #232634;
+}
+
+.volume-muted {
+  font-size: 18px;
+  padding-right: 18px;
 }
 
 .brightness {
