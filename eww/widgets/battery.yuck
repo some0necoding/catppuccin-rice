@@ -1,6 +1,7 @@
 (defwidget bat []
   (box
     :class "battery"
+    :space-evenly false
     (label
       :class "battery-icon"
       :text "${battery-icon} "
