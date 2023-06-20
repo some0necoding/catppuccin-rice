@@ -1,8 +1,13 @@
 (defwidget brightness []
   (box
     :class "brightness"
+    :space-evenly false
     (label
-      :text "${brightness-icon} ${brightness-percent}%"
+      :class "brightness-icon"
+      :text "${brightness-icon}"
+    )
+    (label 
+      :text "${brightness-percent}%"
     )
   )
 )

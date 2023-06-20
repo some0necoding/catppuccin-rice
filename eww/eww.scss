@@ -75,12 +75,23 @@
   padding: 0px 12px;
   margin: 0px 4px;
   border-radius: 12px;
+  font-size: 14px;
   background: #232634;
 }
 
+.brightness-icon {
+  padding-right: 12px;
+  font-size: 18px;
+}
+
 .battery {
-  padding: 0px 12px;
+  padding-right: 12px;
+  padding-left: 8px;
   margin: 0px 4px;
   border-radius: 12px;
   background: #232634;
+}
+
+.battery-icon {
+  font-size: 18px;
 }
