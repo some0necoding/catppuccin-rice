@@ -1,11 +1,12 @@
 (defwidget volume []
   (box
-    :class "volume"
+    :class "${volume-muted == "true" ? "volume-muted" : "volume"}"
     (label
-      :text "${volume-icon} ${volume-percent}%"
+      :text "${volume-muted == "true" ? "${volume-icon} " : "${volume-icon} ${volume-percent}%"}"
     )
   )
 )
 
 (defpoll volume-icon :interval "1s" "scripts/volume icon")
 (defpoll volume-percent :interval "0.1s" "scripts/volume percent")
+(defpoll volume-muted :interval "1s" "scripts/volume muted")

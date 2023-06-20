@@ -10,10 +10,18 @@ function percent() {
     echo $percent
 }
 
+function muted() {
+    echo $(pactl --format=json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
+                                                      .mute")
+}
+
 function icon() {
     local volume=$(percent)
+    local muted=$(muted)
 
-    if (( $volume <= 33 )); then
+    if [[ $muted == "true" ]]; then
+        echo ""
+    elif (( $volume <= 33 )); then
         echo ""
     elif (( $volume <= 66 )); then
         echo ""
@@ -26,4 +34,6 @@ if [[ -n $1 && $1 == "percent" ]]; then
     echo $(percent)
 elif [[ -n $1 && $1 == "icon" ]]; then
     echo $(icon)
+elif [[ -n $1 && $1 == "muted" ]]; then
+    echo $(muted)
 fi
