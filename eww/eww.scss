@@ -22,11 +22,20 @@
   background: transparent;
 }
 
-.wifi {
-  padding: 0px 12px;
+.tray {
   margin: 0px 4px;
   border-radius: 12px;
-  background: #ff0000;
+  background: #232634;
+}
+
+.wifi {
+  padding: 0px 12px;
+  border-radius: 12px;
+}
+
+.bluetooth {
+  padding: 0px 12px;
+  border-radius: 12px;
 }
 
 .volume, 

@@ -2,6 +2,7 @@
 (include "./widgets/brightness.yuck")
 (include "./widgets/volume.yuck")
 (include "./widgets/wifi.yuck")
+(include "./widgets/bluetooth.yuck")
 
 (defwidget left []
   (label :class "left"
@@ -24,9 +25,7 @@
     :space-evenly false
     (box :class "tray"
       (wifi)
-      (label :class "bluetooth"
-             :text "bt"
-      ) 
+      (bluetooth) 
     ) 
     (volume)
     (brightness)

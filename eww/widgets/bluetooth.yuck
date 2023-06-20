@@ -1,0 +1,10 @@
+(defwidget bluetooth []
+  (box
+    :class "bluetooth"
+    (label
+      :text "${bluetooth-icon}"
+    )
+  )
+)
+
+(defpoll bluetooth-icon :interval "1s" "scripts/bluetooth icon")
