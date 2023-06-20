@@ -2,7 +2,7 @@
   (box
     :class "${volume-muted == "true" ? "volume-muted" : "volume"}"
     (label
-      :text "${volume-muted == "true" ? "${volume-icon} " : "${volume-icon} ${volume-percent}%"}"
+      :text "${volume-muted == "true" ? "${volume-icon}" : "${volume-icon} ${volume-percent}%"}"
     )
   )
 )
