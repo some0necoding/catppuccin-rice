@@ -34,5 +34,5 @@
   )
 )
 
-(defpoll icon :interval "0.1s" "scripts/workspaces icon")
-(defpoll active :interval "0.1s" "scripts/workspaces active")
+(defpoll icon :interval "1s" "scripts/workspaces icon")
+(defpoll active :interval "1s" "scripts/workspaces active")

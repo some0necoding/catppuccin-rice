@@ -12,5 +12,5 @@
   )
 )
 
-(defpoll brightness-icon :interval "0.1s" "scripts/brightness icon")
-(defpoll brightness-percent :interval "0.1s" "scripts/brightness percent")
+(defpoll brightness-icon :interval "1s" "scripts/brightness icon")
+(defpoll brightness-percent :interval "1s" "scripts/brightness percent")
