@@ -34,5 +34,4 @@
   )
 )
 
-(defpoll icon :interval "1s" "scripts/workspaces icon")
 (deflisten active :initial "1" "scripts/active-workspace")
