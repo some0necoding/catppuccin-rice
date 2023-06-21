@@ -5,34 +5,34 @@
     :space-evenly false
     (label
       :class "${active == 1 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 2 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 3 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 4 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 5 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 6 ? "icon-active" : "icon"}"
-      :text "${icon}" 
+      :text ""
     )
     (label
       :class "${active == 7 ? "icon-active" : "icon"}"
-      :text "${icon}"
+      :text ""
     )
   )
 )
 
 (defpoll icon :interval "1s" "scripts/workspaces icon")
-(defpoll active :interval "1s" "scripts/workspaces active")
+(deflisten active :initial "1" "scripts/active-workspace")
