@@ -1,6 +1,7 @@
 (include "./widgets/battery.yuck")
 (include "./widgets/brightness.yuck")
 (include "./widgets/volume.yuck")
+(include "./widgets/mike.yuck")
 (include "./widgets/wifi.yuck")
 (include "./widgets/bluetooth.yuck")
 (include "./widgets/workspaces.yuck")
@@ -25,11 +26,17 @@
     :class "right"
     :halign "end"
     :space-evenly false
-    (box :class "tray"
+    (box 
+      :class "connectivity-tray"
       (wifi)
       (bluetooth) 
-    ) 
-    (volume)
+    )
+    (box 
+      :class "audio-tray"
+      :space-evenly false
+      (mike)
+      (volume)
+    )
     (brightness)
     (bat)
   )

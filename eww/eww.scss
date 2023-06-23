@@ -40,7 +40,7 @@
   background: transparent;
 }
 
-.tray {
+.connectivity-tray {
   margin: 0px 4px;
   border-radius: 12px;
   background: #232634;
@@ -58,12 +58,17 @@
   border-radius: 12px;
 }
 
-.volume,
-.volume-icon-muted {
-  padding: 0px 12px;
+.audio-tray {
   margin: 0px 4px;
   border-radius: 12px;
   background: #232634;
+}
+
+.volume,
+.volume-icon-muted {
+  padding: 0px 12px;
+  padding-left: 8px;
+  border-radius: 12px;
 }
 
 .volume-icon {
@@ -74,6 +79,12 @@
 .volume-icon-muted {
   font-size: 18px;
   padding-right: 18px;
+}
+
+.mike {
+  padding: 0px 12px;
+  padding-right: 8px;
+  border-radius: 12px;
 }
 
 .brightness {

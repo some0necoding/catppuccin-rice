@@ -1,0 +1,10 @@
+(defwidget mike []
+  (box
+    :class "mike"
+    (label
+      :text "${mike-icon}"
+    )
+  )
+)
+
+(defpoll mike-icon :interval "1s" "scripts/mike icon")
