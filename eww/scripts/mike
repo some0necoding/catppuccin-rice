@@ -15,6 +15,10 @@ function muted() {
                                                       .mute")
 }
 
+function toggle_mute() {
+    wpctl set-mute $(get_source_id) toggle
+}
+
 function icon() {
     local muted=$(muted)
 
@@ -25,8 +29,10 @@ function icon() {
     fi
 }
 
-if [[ -n $1 && $1 == "muted" ]]; then
+if [[ -n $1 && -n $2 && $1 == "mute" && $2 == "status" ]]; then
     echo $(muted)
+elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
+    echo $(toggle_mute)
 elif [[ -n $1 && $1 == "icon" ]]; then
     echo $(icon)
 fi
