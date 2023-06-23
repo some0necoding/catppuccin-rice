@@ -1,0 +1,9 @@
+#!/bin/bash
+
+defaultSourceId=$(pactl --format=json list sources | \
+              jq ".[] | select(.name == \"$(pactl get-default-source)\") | 
+                        .properties | 
+                        .[\"object.id\"] | 
+                        tonumber")
+
+echo $defaultSourceId
