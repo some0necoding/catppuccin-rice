@@ -1,0 +1,32 @@
+#!/bin/bash
+
+function get_source_id() {
+    defaultSourceId=$(pactl --format=json list sources | \
+                    jq ".[] | select(.name == \"$(pactl get-default-source)\") | 
+                        .properties | 
+                        .[\"object.id\"] | 
+                        tonumber")
+
+    echo $defaultSourceId
+}
+
+function muted() {
+    echo $(pactl --format=json list sources | jq ".[] | select(.name == \"$(pactl get-default-source)\") | 
+                                                      .mute")
+}
+
+function icon() {
+    local muted=$(muted)
+
+    if [[ $muted == "true" ]]; then
+        echo ""
+    elif [[ $muted == "false" ]]; then
+        echo ""
+    fi
+}
+
+if [[ -n $1 && $1 == "muted" ]]; then
+    echo $(muted)
+elif [[ -n $1 && $1 == "icon" ]]; then
+    echo $(icon)
+fi

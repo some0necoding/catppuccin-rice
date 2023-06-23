@@ -1,12 +1,18 @@
 #!/bin/bash
 
 function get_sink_id() {
-    echo $(~/.config/hypr/scripts/default-sink-id)
+    defaultSinkId=$(pactl --format=json list sinks | \
+                    jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
+                        .properties | 
+                        .[\"object.id\"] | 
+                        tonumber")
+
+    echo $defaultSinkId
 }
 
 function percent() {
     volume=$(wpctl get-volume $(get_sink_id) | awk '{ print $2 }')
-    percent=$(echo - | awk "{print $volume * 100}")
+    percent=$(echo - | awk "{ print $volume * 100 }")
     echo $percent
 }
 
