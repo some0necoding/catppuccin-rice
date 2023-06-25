@@ -11,9 +11,7 @@ function get_sink_id() {
 }
 
 function percent() {
-    volume=$(wpctl get-volume $(get_sink_id) | awk '{ print $2 }')
-    percent=$(echo - | awk "{ print $volume * 100 }")
-    echo $percent
+    echo $(wpctl get-volume $(get_sink_id) | awk '{ print $2 * 100 }')
 }
 
 function muted() {
