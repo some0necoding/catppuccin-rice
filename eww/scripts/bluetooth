@@ -34,7 +34,7 @@ function status() {
 function icon() {
     local status=$(status)
 
-    if [[ $status == "powered" ]]; then
+    if [[ $status == "unpowered" ]]; then
         echo "󰂲"
     elif [[ $status == "disconnected" ]]; then
         echo "󰂯"
