@@ -66,6 +66,7 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 'R',     api.tree.reload,                       opts('Refresh'))
   vim.keymap.set('n', 's',     api.node.run.system,                   opts('Run System'))
   vim.keymap.set('n', 'S',     api.tree.search_node,                  opts('Search'))
+  vim.keymap.set('n', 'u',     api.tree.change_root_to_parent,        opts('Up'))
   vim.keymap.set('n', 'W',     api.tree.collapse_all,                 opts('Collapse'))
   vim.keymap.set('n', 'x',     api.fs.cut,                            opts('Cut'))
   vim.keymap.set('n', 'y',     api.fs.copy.filename,                  opts('Copy Name'))
@@ -74,27 +75,26 @@ local function on_attach(bufnr)
   -- END_DEFAULT_ON_ATTACH
 
   -- delete defaults
-  vim.keymap.del('n', '<BS>',  api.node.navigate.parent_close,        opts('Close Directory'))
-  vim.keymap.del('n', '<C-e>', api.node.open.replace_tree_buffer,     opts('Open: In Place'))
-  vim.keymap.del('n', '>',     api.node.navigate.sibling.next,        opts('Next Sibling'))
-  vim.keymap.del('n', '<',     api.node.navigate.sibling.prev,        opts('Previous Sibling'))
-  vim.keymap.del('n', '.',     api.node.run.cmd,                      opts('Run Command'))
-  vim.keymap.del('n', 'bmv',   api.marks.bulk.move,                   opts('Move Bookmarked'))
-  vim.keymap.del('n', 'B',     api.tree.toggle_no_buffer_filter,      opts('Toggle No Buffer'))
-  vim.keymap.del('n', 'C',     api.tree.toggle_git_clean_filter,      opts('Toggle Git Clean'))
-  vim.keymap.del('n', '[c',    api.node.navigate.git.prev,            opts('Prev Git'))
-  vim.keymap.del('n', ']c',    api.node.navigate.git.next,            opts('Next Git'))
-  vim.keymap.del('n', 'D',     api.fs.trash,                          opts('Trash'))
-  vim.keymap.del('n', ']e',    api.node.navigate.diagnostics.next,    opts('Next Diagnostic'))
-  vim.keymap.del('n', '[e',    api.node.navigate.diagnostics.prev,    opts('Prev Diagnostic'))
-  vim.keymap.del('n', 'm',     api.marks.toggle,                      opts('Toggle Bookmark'))
-  vim.keymap.del('n', 'O',     api.node.open.no_window_picker,        opts('Open: No Window Picker'))
-  vim.keymap.del('n', 'U',     api.tree.toggle_custom_filter,         opts('Toggle Hidden'))
+  vim.keymap.del('n', '<BS>',  { buffer = bufnr }) -- api.node.navigate.parent_close,        opts('Close Directory'))
+  vim.keymap.del('n', '<C-e>', { buffer = bufnr }) -- api.node.open.replace_tree_buffer,     opts('Open: In Place'))
+  vim.keymap.del('n', '>',     { buffer = bufnr }) -- api.node.navigate.sibling.next,        opts('Next Sibling'))
+  vim.keymap.del('n', '<',     { buffer = bufnr }) -- api.node.navigate.sibling.prev,        opts('Previous Sibling'))
+  vim.keymap.del('n', '.',     { buffer = bufnr }) -- api.node.run.cmd,                      opts('Run Command'))
+  vim.keymap.del('n', 'bmv',   { buffer = bufnr }) -- api.marks.bulk.move,                   opts('Move Bookmarked'))
+  vim.keymap.del('n', 'B',     { buffer = bufnr }) -- api.tree.toggle_no_buffer_filter,      opts('Toggle No Buffer'))
+  vim.keymap.del('n', 'C',     { buffer = bufnr }) -- api.tree.toggle_git_clean_filter,      opts('Toggle Git Clean'))
+  vim.keymap.del('n', '[c',    { buffer = bufnr }) -- api.node.navigate.git.prev,            opts('Prev Git'))
+  vim.keymap.del('n', ']c',    { buffer = bufnr }) -- api.node.navigate.git.next,            opts('Next Git'))
+  vim.keymap.del('n', 'D',     { buffer = bufnr }) -- api.fs.trash,                          opts('Trash'))
+  vim.keymap.del('n', ']e',    { buffer = bufnr }) -- api.node.navigate.diagnostics.next,    opts('Next Diagnostic'))
+  vim.keymap.del('n', '[e',    { buffer = bufnr }) -- api.node.navigate.diagnostics.prev,    opts('Prev Diagnostic'))
+  vim.keymap.del('n', 'm',     { buffer = bufnr }) -- api.marks.toggle,                      opts('Toggle Bookmark'))
+  vim.keymap.del('n', 'O',     { buffer = bufnr }) -- api.node.open.no_window_picker,        opts('Open: No Window Picker'))
+  vim.keymap.del('n', 'U',     { buffer = bufnr }) -- api.tree.toggle_custom_filter,         opts('Toggle Hidden'))
 
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
-  vim.keymap.set('n', 'u', api.tree.change_root_to_parent, opts('Up'))
 
 end
 
