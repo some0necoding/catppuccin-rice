@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/marco/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -138,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/marco/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["mini.nvim"] = {
-    loaded = true,
-    path = "/home/marco/.local/share/nvim/site/pack/packer/start/mini.nvim",
-    url = "https://github.com/echasnovski/mini.nvim"
   },
   ["monokai.nvim"] = {
     loaded = true,
