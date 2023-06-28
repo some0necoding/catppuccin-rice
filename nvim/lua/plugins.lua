@@ -4,9 +4,11 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 
+    -- packer
 	use 'wbthomason/packer.nvim'
 
-    use 'nvim-treesitter/nvim-treesitter'   -- treesitter
+    -- treesitter	
+    use 'nvim-treesitter/nvim-treesitter'
 
 	-- file explorer plugins
 	use {
@@ -14,6 +16,7 @@ return require('packer').startup(function(use)
 		requires = { 'nvim-tree/nvim-web-devicons' },
 	}
 
+    -- just some cute pets :)
     use {
         "giusgad/pets.nvim",
         requires = {
@@ -26,9 +29,6 @@ return require('packer').startup(function(use)
 	use {
 		'goolord/alpha-nvim',
 		requires = { 'nvim-tree/nvim-web-devicons' },
-		-- config = function ()
-		--	require('alpha').setup(require('alpha.themes.custom').config)
-		-- end
 	}
 
 	-- telescope plugins
@@ -38,22 +38,20 @@ return require('packer').startup(function(use)
 	}
 
 	use 'kdheepak/lazygit.nvim'		-- git integration
-	use 'echasnovski/mini.nvim'
 	use 'windwp/nvim-autopairs'		-- auto closing brackets
 	use 'windwp/nvim-ts-autotag'	-- auto closing html tags
 
-	-- TODO: golang workflow plugins
-	
 	-- autocomplete plugins
 	use {
-		'neovim/nvim-lspconfig',	-- LSP config
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-path',
-		'hrsh7th/cmp-cmdline',
-		'hrsh7th/nvim-cmp',
+		'neovim/nvim-lspconfig',	-- neovim LSP client config
+		'hrsh7th/cmp-nvim-lsp',     -- nvim-cmp source for neovim builtin LSP client
+		'hrsh7th/cmp-buffer',       -- nvim-cmp source for buffer words
+		'hrsh7th/cmp-path',         -- nvim-cmp source for filesystem paths
+		'hrsh7th/cmp-cmdline',      -- nvim-cmp source for vim cmdline
+		'hrsh7th/nvim-cmp',         -- completion plugin
 
 		'L3MON4D3/LuaSnip',
+        'rafamadriz/friendly-snippets',
 		'saadparwaiz1/cmp_luasnip',
 	}
 
