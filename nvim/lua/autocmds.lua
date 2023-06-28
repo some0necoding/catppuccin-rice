@@ -11,7 +11,10 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 -- make folds persistent: restore folds when opening buffers
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     pattern = { "*.*" },
-    command = "silent loadview"
+    callback = function()
+        vim.cmd "silent loadview"
+        vim.cmd "NvimTreeOpen"
+    end,
 })
 
 -- configure c development environment
