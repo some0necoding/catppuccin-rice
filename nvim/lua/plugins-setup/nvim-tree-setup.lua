@@ -104,7 +104,7 @@ require("nvim-tree").setup({
 })
 
 -- display icons
-require("nvim-web-devicons-setup")
+require("plugins-setup/nvim-web-devicons-setup")
 
 -- OR setup with some options
 require("nvim-tree").setup({
