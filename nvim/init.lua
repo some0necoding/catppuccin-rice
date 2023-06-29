@@ -36,6 +36,3 @@ key.map("n", "<A-k>", ":m .-2<CR>")
 -- telescope search
 key.map("n", '<A-f>', ':Telescope find_files<CR>')
 key.map("n", '<A-g>', ':Telescope live_grep<CR>')
-
--- vim jump to the last position when reopening a file
-require('rememberline')
