@@ -33,26 +33,9 @@ local key = require('key')
 key.map("n", "<A-j>", ":m .+1<CR>")
 key.map("n", "<A-k>", ":m .-2<CR>")
 
--- move between panes to left/bottom/top/rigth
-key.map("n", "<S-h>", "<C-w>h")
-key.map("n", "<S-j>", "<C-w>j")
-key.map("n", "<S-k>", "<C-w>k")
-key.map("n", "<S-l>", "<C-w>l")
-
--- tab management
-key.map("n", "<C-t>", ":tabnew<CR>")
-key.map("n", "<C-l>", ":tabnext<CR>")
-key.map("n", "<C-h>", ":tabprev<CR>")
-key.map("n", "<C-w>", ":bd<CR>")
-
--- deleted text is not copied to the clipboard
-key.map("n", 'd$', '"_d$')
-key.map("n", 'dw', '"_dw')
-key.map("n", 'x', '"_x')
-
 -- telescope search
-key.map("n", 'ff', ':Telescope find_files<CR>')
-key.map("n", 'fg', ':Telescope live_grep<CR>')
+key.map("n", '<A-f>', ':Telescope find_files<CR>')
+key.map("n", '<A-g>', ':Telescope live_grep<CR>')
 
 -- vim jump to the last position when reopening a file
 require('rememberline')
