@@ -11,10 +11,13 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
 -- make folds persistent: restore folds when opening buffers
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     pattern = { "*.*" },
-    callback = function()
-        vim.cmd "silent loadview"
-        vim.cmd "NvimTreeOpen"
-    end,
+    command = "silent loadview"
+})
+
+-- open nvim-tree when entering buffer
+vim.api.nvim_create_autocmd({ "BufWinEnter", "BufNewFile" }, {
+    pattern = { "*.*" },
+    command = "NvimTreeOpen"
 })
 
 -- configure c development environment
@@ -27,9 +30,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- configure web development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "*.html", "*.css", "*.scss", "*.js", "*.ts", "*.jsx", "*.tsx", "*.yuck" },
-    callback = function()
-        setlocal.tabstop = 2					-- tab width
+    pattern = { "*.html", "*.css", "*.scss", "*.js", "*.ts", "*.jsx", "*.tsx", "*.yuck" }, 
+    callback = function() 
+        setlocal.tabstop = 2	                -- tab width
         setlocal.softtabstop = 2				-- see multiple spaces as tabstops so <BS> does the right thing
         setlocal.shiftwidth = 2				    -- width for autoindents
     end,
