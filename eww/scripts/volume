@@ -10,34 +10,47 @@ function get_sink_id() {
     echo $defaultSinkId
 }
 
-function percent() {
+function get_percent() {
     echo $(wpctl get-volume $(get_sink_id) | awk '{ print $2 * 100 }')
 }
 
-function muted() {
-    echo $(pactl --format=json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
-                                                      .mute")
+function get_mute() {
+    echo $(pactl --format=json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | .mute")
+}
+
+function percent() {
+    while read line; do
+        echo $(get_percent)
+    done < "${1:-/dev/stdin}"
 }
 
 function icon() {
-    local volume=$(percent)
-    local muted=$(muted)
+    while read line; do
+        local volume=$(get_percent)
+        local muted=$(get_mute)
 
-    if [[ $muted == "true" ]]; then
-        echo ""
-    elif (( $volume <= 33 )); then
-        echo ""
-    elif (( $volume <= 66 )); then
-        echo ""
-    elif (( $volume <= 100 )); then
-        echo ""
-    fi
+        if [[ $muted == "true" ]]; then
+            echo ""
+        elif (( $volume <= 33 )); then
+            echo ""
+        elif (( $volume <= 66 )); then
+            echo ""
+        elif (( $volume <= 100 )); then
+            echo ""
+        fi
+    done < "${1:-/dev/stdin}"
+}
+
+function muted() {
+    while read line; do
+        echo $(get_mute)
+    done < "${1:-/dev/stdin}"
 }
 
 if [[ -n $1 && $1 == "percent" ]]; then
-    echo $(percent)
+    percent
 elif [[ -n $1 && $1 == "icon" ]]; then
-    echo $(icon)
+    icon
 elif [[ -n $1 && $1 == "muted" ]]; then
-    echo $(muted)
+    muted
 fi
