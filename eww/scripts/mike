@@ -14,7 +14,7 @@ function get_mute() {
     echo $(pactl --format=json list sources | jq ".[] | select(.name == \"$(pactl get-default-source)\") | .mute")
 }
 
-function toggle_mute() {
+function mute_toggle() {
     wpctl set-mute $(get_source_id) toggle
 }
 
@@ -32,7 +32,7 @@ function icon() {
 }
 
 if [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
-    echo $(toggle_mute)
+    mute_toggle
 elif [[ -n $1 && $1 == "icon" ]]; then
     icon
 fi

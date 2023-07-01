@@ -43,14 +43,14 @@ function icon() {
     done
 }
 
-function muted() {
+function mute_status() {
     pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
         echo $(get_mute)
     done
 }
 
-function toggle_mute() {
+function mute_toggle() {
     wpctl set-mute $(get_sink_id) toggle 
 }
 
@@ -59,7 +59,7 @@ if [[ -n $1 && $1 == "percent" ]]; then
 elif [[ -n $1 && $1 == "icon" ]]; then
     icon
 elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "status" ]]; then
-    muted
+    mute_status
 elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
-    toggle_mute
+    mute_toggle
 fi
