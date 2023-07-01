@@ -19,14 +19,14 @@ function get_mute() {
 }
 
 function percent() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" | \
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
         echo $(get_percent)
     done
 }
 
 function icon() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" | \
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
         local volume=$(get_percent)
         local muted=$(get_mute)
@@ -44,16 +44,22 @@ function icon() {
 }
 
 function muted() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" | \
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
         echo $(get_mute)
     done
+}
+
+function toggle_mute() {
+    wpctl set-mute $(get_sink_id) toggle 
 }
 
 if [[ -n $1 && $1 == "percent" ]]; then
     percent
 elif [[ -n $1 && $1 == "icon" ]]; then
     icon
-elif [[ -n $1 && $1 == "muted" ]]; then
+elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "status" ]]; then
     muted
+elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
+    toggle_mute
 fi
