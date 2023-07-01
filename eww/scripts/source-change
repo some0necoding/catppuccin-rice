@@ -1,5 +1,0 @@
-#!/bin/bash
-
-pactl subscribe | stdbuf -o0 grep -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" | \
-                  stdbuf -o0 awk -F "'" '{ print $2 }' | \
-                  stdbuf -o0 tee /dev/stdout

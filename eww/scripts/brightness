@@ -2,30 +2,38 @@
 
 backlight="/sys/class/backlight/intel_backlight"
 
-function percent() {
-    max_brightness=$(cat ${backlight}/max_brightness)
-    brightness=$(cat ${backlight}/brightness)
+function get_percent() {
+        brightness=$(cat "${backlight}/brightness")
+        max_brightness=$(cat "${backlight}/max_brightness")
+        echo $(( (100 * $brightness) / $max_brightness ))
+}
 
-    percentage=$(( (100 * $brightness) / $max_brightness ))
-    echo $percentage
+function percent() {
+    inotifywait -m -e modify "${backlight}/brightness" | \
+        while read file_path file_event file_name; do 
+            echo $(get_percent) 
+        done
 }
 
 function icon() {
-    local percent=$(percent)
+    inotifywait -m -e modify "${backlight}/brightness" | \
+        while read file_path file_event file_name; do 
+            local percent=$(get_percent) 
 
-    if (( $percent <= 25 )); then
-        echo "󰃞"
-    elif (( $percent <= 50 )); then
-        echo "󰃝"
-    elif (( $percent <= 75 )); then
-        echo "󰃟"
-    elif (( $percent <= 100 )); then
-        echo "󰃠"
-    fi
+            if (( $percent <=  25 )); then
+                echo "󰃞"
+            elif (( $percent <=  50 )); then
+                echo "󰃝"
+            elif (( $percent <=  75 )); then
+                echo "󰃟"
+            elif (( $percent <= 100 )); then
+                echo "󰃠"
+            fi
+        done
 }
 
 if [[ -n $1 && $1 == "percent" ]]; then
-    echo $(percent)
+    percent
 elif [[ -n $1 && $1 == "icon" ]]; then
-    echo $(icon)
+    icon
 fi

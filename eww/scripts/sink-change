@@ -1,3 +1,0 @@
-#!/bin/bash
-
-pactl subscribe | stdbuf -o0 grep -E "^Event 'change' on sink" | stdbuf -o0 awk -F "#" '{ print $2 }'
