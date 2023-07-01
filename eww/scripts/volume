@@ -32,13 +32,13 @@ function icon() {
         local muted=$(get_mute)
 
         if [[ $muted == "true" ]]; then
-            echo ""
+            echo "󰝟"
         elif (( $volume <= 33 )); then
             echo ""
         elif (( $volume <= 66 )); then
             echo ""
         elif (( $volume <= 100 )); then
-            echo ""
+            echo "󰕾"
         fi
     done
 }
