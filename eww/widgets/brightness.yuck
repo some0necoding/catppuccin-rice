@@ -4,13 +4,13 @@
     :space-evenly false
     (label
       :class "brightness-icon"
-      :text "${icon}"
+      :text "${brightness-icon}"
     )
     (label 
-      :text "${percent}%"
+      :text "${brightness-percent}%"
     )
   )
 )
 
-(deflisten icon    :initial "󰃠"   "scripts/brightness icon")
-(deflisten percent :initial "100" "scripts/brightness percent")
+(deflisten brightness-icon    :initial "󰃠"   "scripts/brightness icon")
+(deflisten brightness-percent :initial "100" "scripts/brightness percent")
