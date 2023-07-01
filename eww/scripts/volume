@@ -19,14 +19,14 @@ function get_mute() {
 }
 
 function percent() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" |\
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" |\
     while read line; do
         echo $(get_percent)
     done
 }
 
 function icon() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" |\
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" |\
     while read line; do
         local volume=$(get_percent)
         local muted=$(get_mute)
@@ -44,7 +44,7 @@ function icon() {
 }
 
 function muted() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" |\
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(~/.config/hypr/scripts/default-sink-id)" |\
     while read line; do
         echo $(get_mute)
     done
