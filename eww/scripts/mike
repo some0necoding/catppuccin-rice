@@ -19,7 +19,7 @@ function toggle_mute() {
 }
 
 function icon() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" | \
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(get_source_id)" | \
     while read line; do 
         local muted=$(get_mute)
 
