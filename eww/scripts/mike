@@ -10,9 +10,8 @@ function get_source_id() {
     echo $defaultSourceId
 }
 
-function muted() {
-    echo $(pactl --format=json list sources | jq ".[] | select(.name == \"$(pactl get-default-source)\") | 
-                                                      .mute")
+function get_mute() {
+    echo $(pactl --format=json list sources | jq ".[] | select(.name == \"$(pactl get-default-source)\") | .mute")
 }
 
 function toggle_mute() {
@@ -20,19 +19,20 @@ function toggle_mute() {
 }
 
 function icon() {
-    local muted=$(muted)
+    pactl subscribe | grep --line-buffered -E "^Event 'change' on source #$(~/.config/hypr/scripts/default-source-id)" | \
+    while read line; do 
+        local muted=$(get_mute)
 
-    if [[ $muted == "true" ]]; then
-        echo ""
-    elif [[ $muted == "false" ]]; then
-        echo ""
-    fi
+        if [[ $muted == "true" ]]; then
+            echo ""
+        elif [[ $muted == "false" ]]; then
+            echo ""
+        fi
+    done
 }
 
-if [[ -n $1 && -n $2 && $1 == "mute" && $2 == "status" ]]; then
-    echo $(muted)
-elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
+if [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
     echo $(toggle_mute)
 elif [[ -n $1 && $1 == "icon" ]]; then
-    echo $(icon)
+    icon
 fi

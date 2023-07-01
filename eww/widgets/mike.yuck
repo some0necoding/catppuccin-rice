@@ -10,4 +10,4 @@
   )
 )
 
-(defpoll mike-icon :interval "1s" "scripts/mike icon")
+(deflisten mike-icon :initial "" "scripts/mike icon")
