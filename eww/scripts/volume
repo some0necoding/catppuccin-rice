@@ -10,42 +10,27 @@ function get_sink_id() {
     echo $defaultSinkId
 }
 
-function get_percent() {
-    echo $(wpctl get-volume $(get_sink_id) | awk '{ print $2 * 100 }')
-}
-
-function get_percent_capped() {
-    local percent=$(wpctl get-volume $(get_sink_id) | awk '{ print $2 * 100 }')
-
-    if (( $percent > 100 )); then
-        echo "100"
-    else
-        echo $percent
-    fi
-}
-
-function get_mute() {
-    echo $(pactl --format=json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | .mute")
-}
-
 function percent() {
     pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
-        echo $(get_percent)
-    done
-}
+        
+        local percent=$(wpctl get-volume $(get_sink_id) | awk '{ print $2 * 100 }')
 
-function percent_capped() {
-    pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
-    while read line; do
-        echo $(get_percent_capped)
+        if [[ -n $1 && $1 == "capped" && $percent -gt 100 ]]; then
+            echo "100"
+        else
+            echo $percent
+        fi
+
     done
 }
 
 function mute_status() {
     pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
-        echo $(get_mute)
+        echo $(pactl --format=json list sinks | \ 
+                     jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
+                         .mute")
     done
 }
 
@@ -56,9 +41,7 @@ function mute_toggle() {
 if [[ -n $1 && -z $2 && $1 == "percent" ]]; then
     percent
 elif [[ -n $1 && -n $2 && $1 == "percent" && $2 == "capped" ]]; then
-    percent_capped
-elif [[ -n $1 && $1 == "icon" ]]; then
-    icon
+    percent capped
 elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "status" ]]; then
     mute_status
 elif [[ -n $1 && -n $2 && $1 == "mute" && $2 == "toggle" ]]; then
