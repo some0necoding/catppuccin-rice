@@ -1,7 +1,7 @@
 (defwidget battery []
   (box
     :class "battery"
-     (circular-progress
+    (circular-progress
       :value "${battery-percent}"
       :start-at 50
       :clockwise false
