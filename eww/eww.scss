@@ -89,34 +89,34 @@
 }
 
 .brightness {
-  padding: 0px 12px;
-  margin: 0px 4px;
-  border-radius: 12px;
-  font-size: 14px;
-  background: #232634;
-}
-
-.brightness-icon {
-  font-size: 18px;
-  padding-right: 12px;
-}
-
-/* --- BRIGHTNESS CIRCULAR TEST --- */
-
-.brightness {
   padding: 0px 5px;
   margin: 0px 4px;
   border-radius: 12px;
   background: #232634;
 }
 
-.inner-circle-icon {
+.brightness-icon {
   margin: 10px;
   font-size: 15px;
   color: #fff;
 }
 
-/* --- BRIGHTNESS CIRCULAR TEST --- */
+/* --- BATTERY CIRCULAR TEST --- */
+
+.battery-circular {
+  padding: 0px 5px;
+  margin: 0px 4px;
+  border-radius: 12px;
+  background: #232634;
+}
+
+.battery-circular-icon {
+  margin: 10px;
+  font-size: 15px;
+  color: #fff;
+}
+
+/* --- BATTERY CIRCULAR TEST --- */
 
 .battery {
   padding: 0px 12px;
