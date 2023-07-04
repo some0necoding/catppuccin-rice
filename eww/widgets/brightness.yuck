@@ -7,7 +7,7 @@
       :clockwise false
       :thickness 3
       (label
-       :class "inner-circle-icon"
+       :class "brightness-icon"
        :text ""    ;or "󱠃"
       )
     )
