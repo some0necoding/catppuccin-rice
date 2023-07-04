@@ -64,12 +64,20 @@
   background: #232634;
 }
 
+.audio-muted,
 .audio {
-  color: #f4b8e4;
   padding: 5px;
   margin: 0px;
   border-radius: 12px;
   background: #232634;
+}
+
+.audio {
+  color: #f4b8e4;
+}
+
+.audio-muted {
+  color: #a5adce;
 }
 
 .audio-icon {

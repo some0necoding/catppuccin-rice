@@ -1,8 +1,8 @@
 (defwidget audio []
   (box
-    :class "audio"
+    :class "${audio-muted == "true" ? "audio-muted" : "audio"}"
     (circular-progress
-      :value "${audio-percent}"
+      :value "${audio-muted == "true" ? "100" : "${audio-percent}"}"
       :start-at 50
       :clockwise false
       :thickness 3
@@ -14,4 +14,5 @@
   )
 )
 
-(deflisten audio-percent :initial "100"   "scripts/volume percent capped")
+(deflisten audio-percent :initial "100" "scripts/volume percent capped")
+(deflisten audio-muted :initial "true" "scripts/volume mute status")
