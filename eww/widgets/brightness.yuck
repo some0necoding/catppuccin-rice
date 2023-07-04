@@ -2,6 +2,7 @@
   (box
     :class "brightness"
     :tooltip "${brightness-percent}%"
+    ;TODO add onclick to open brightness widget
     (circular-progress
       :value "${brightness-percent}"
       :start-at 50

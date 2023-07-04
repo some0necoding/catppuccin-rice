@@ -2,6 +2,7 @@
   (box
     :class "${audio-muted == "true" ? "audio-muted" : "audio"}"
     :tooltip "${audio-muted == "true" ? "muted" : "${audio-percent}%"}"
+    ;TODO add onclick to open audio widget
     (circular-progress
       :value "${audio-muted == "true" ? "100" : "${audio-percent}"}"
       :start-at 50
