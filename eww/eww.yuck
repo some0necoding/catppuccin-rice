@@ -1,5 +1,4 @@
 (include "./widgets/battery.yuck")
-(include "./widgets/battery-circular.yuck")
 (include "./widgets/brightness.yuck")
 (include "./widgets/volume.yuck")
 (include "./widgets/mike.yuck")
@@ -39,8 +38,7 @@
       (volume)
     )
     (brightness)
-    (battery-circular)
-    (bat)
+    (battery)
   )
 )
 

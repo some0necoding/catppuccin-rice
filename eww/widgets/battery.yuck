@@ -1,16 +1,17 @@
-(defwidget bat []
+(defwidget battery []
   (box
     :class "battery"
-    :space-evenly false
-    (label
-      :class "battery-icon"
-      :text "${battery-icon} "
-    )
-    (label
-      :text "${battery-percent}%"
+     (circular-progress
+      :value "${battery-percent}"
+      :start-at 50
+      :clockwise false
+      :thickness 3
+      (label
+       :class "battery-icon"
+       :text "󰁹"
+      )
     )
   )
 )
 
-(defpoll battery-icon :interval "1s" "scripts/battery icon")
-(defpoll battery-percent :interval "1s" "scripts/battery percent")
+(deflisten battery-percent :initial "100" "scripts/battery percent")
