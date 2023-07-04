@@ -1,14 +1,14 @@
 (defwidget brightness []
   (box
     :class "brightness"
-     (circular-progress
+    (circular-progress
       :value "${brightness-percent}"
       :start-at 50
       :clockwise false
       :thickness 3
       (label
-       :class "brightness-icon"
-       :text ""    ;or "󱠃"
+        :class "brightness-icon"
+        :text ""    ;or "󱠃"
       )
     )
   ) 
