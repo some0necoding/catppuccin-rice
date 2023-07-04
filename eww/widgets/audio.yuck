@@ -1,6 +1,7 @@
 (defwidget audio []
   (box
     :class "${audio-muted == "true" ? "audio-muted" : "audio"}"
+    :tooltip "${audio-muted == "true" ? "muted" : "${audio-percent}%"}"
     (circular-progress
       :value "${audio-muted == "true" ? "100" : "${audio-percent}"}"
       :start-at 50

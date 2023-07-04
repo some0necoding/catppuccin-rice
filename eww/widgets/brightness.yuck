@@ -1,6 +1,7 @@
 (defwidget brightness []
   (box
     :class "brightness"
+    :tooltip "${brightness-percent}%"
     (circular-progress
       :value "${brightness-percent}"
       :start-at 50
