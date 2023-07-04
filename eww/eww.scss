@@ -41,7 +41,7 @@
 }
 
 .connectivity-tray {
-  margin: 0px 4px;
+  margin-right: 20px;
   border-radius: 12px;
   background: #232634;
 }
@@ -58,39 +58,16 @@
   border-radius: 12px;
 }
 
-.audio-tray {
-  margin: 0px 4px;
+.tray {
+  padding: 0px 5px;
   border-radius: 12px;
   background: #232634;
 }
 
-.volume,
-.volume-icon-muted {
-  padding: 0px 12px;
-  padding-left: 8px;
-  border-radius: 12px;
-}
-
-.volume-icon {
-  font-size: 20px;
-  padding-right: 12px;
-}
-
-.volume-icon-muted {
-  font-size: 20px;
-  padding-right: 18px;
-}
-
-.mike {
-  font-size: 16px;
-  padding: 0px 12px;
-  padding-right: 8px;
-  border-radius: 12px;
-}
-
 .audio {
-  padding: 0px 5px;
-  margin: 0px 4px;
+  color: #f4b8e4;
+  padding: 5px;
+  margin: 0px;
   border-radius: 12px;
   background: #232634;
 }
@@ -98,12 +75,12 @@
 .audio-icon {
   margin: 10px;
   font-size: 15px;
-  color: #fff;
 }
 
 .brightness {
-  padding: 0px 5px;
-  margin: 0px 4px;
+  color: #e5c890;
+  padding: 5px;
+  margin: 0px;
   border-radius: 12px;
   background: #232634;
 }
@@ -111,12 +88,12 @@
 .brightness-icon {
   margin: 10px;
   font-size: 15px;
-  color: #fff;
 }
 
 .battery {
-  padding: 0px 5px;
-  margin: 0px 4px;
+  color: #a6d189;
+  padding: 5px;
+  margin: 0px;
   border-radius: 12px;
   background: #232634;
 }
@@ -124,5 +101,4 @@
 .battery-icon {
   margin: 10px;
   font-size: 15px;
-  color: #fff;
 }
