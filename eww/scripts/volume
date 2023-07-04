@@ -28,9 +28,7 @@ function percent() {
 function mute_status() {
     pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$(get_sink_id)" | \
     while read line; do
-        echo $(pactl --format=json list sinks | \ 
-                     jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
-                         .mute")
+        echo $(pactl --format=json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | .mute")
     done
 }
 
