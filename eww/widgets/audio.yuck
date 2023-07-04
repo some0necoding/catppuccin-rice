@@ -1,0 +1,17 @@
+(defwidget audio []
+  (box
+    :class "audio"
+    (circular-progress
+      :value "${audio-percent}"
+      :start-at 50
+      :clockwise false
+      :thickness 3
+      (label
+       :class "audio-icon"
+       :text ""
+      )
+    )
+  )
+)
+
+(deflisten audio-percent :initial "100"   "scripts/volume percent capped")
