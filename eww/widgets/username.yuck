@@ -7,4 +7,4 @@
   )
 )
 
-(defpoll username :interval "5s" "whoami")
+(defpoll username :interval "5s" "logname")
