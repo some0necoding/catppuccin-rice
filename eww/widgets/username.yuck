@@ -1,0 +1,10 @@
+(defwidget username []
+  (box
+    :class "username"
+    (label
+      :text "${username}"
+    )
+  )
+)
+
+(defpoll username :interval "5s" "whoami")
