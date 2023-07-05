@@ -10,7 +10,7 @@ function icon() {
     local status=$(status) 
 
     if [[ $status == "up" ]]; then
-        echo ""
+        echo "󰤨"
     elif [[ $status == "down" ]]; then
         echo ""
     fi
