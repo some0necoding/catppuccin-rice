@@ -22,9 +22,20 @@ function source_id() {
     echo $sourceId
 }
 
-
+# Returns volume percent of audio input (microphone) 
+# or output (speakers).
+# Function output can be capped (i.e. if volume goes
+# over 100% the output will not).
+#
+#   Syntax:
+#       percent input|output [capped]
+#
 function percent() {
 
+    # Check if percent should be capped
+    [[ -n $2 && $2 == "capped" ]] && local isCapped=true || local isCapped=false
+
+    # Pick between input and output
     local nodeId=""
     local nodeType=""
 
@@ -34,31 +45,47 @@ function percent() {
     elif [[ -n $1 && $1 == "output" ]]; then
         nodeId=$(sink_id)
         nodeType="sink"
-    elif [[ -z $1 || $1 == "output" ]]; then
-        # Log something
-        echo "missing arguments"
+    else
         return
     fi
 
+    # Print current percent
+    local percent=$(wpctl get-volume $nodeId | awk '{ print $2 * 100 }')
+    
+    if [[ $isCapped == "true" && $percent -gt 100 ]]; then 
+        echo "100"
+    else 
+        echo $percent
+    fi
+
+    # Listen for events and update percent
     pactl subscribe | grep --line-buffered -E "^Event 'change' on $nodeType #$nodeId" | \
     while read line; do
         
-        local percent=$(wpctl get-volume $nodeId | awk '{ print $2 * 100 }')
+        percent=$(wpctl get-volume $nodeId | awk '{ print $2 * 100 }')
 
-        if [[ -n $2 && $2 == "capped" && $percent -gt 100 ]]; then
+        if [[ $isCapped == "true" && $percent -gt 100 ]]; then
             echo "100"
         else
             echo $percent
         fi
 
+        # Update nodeId every loop (it can change over time)
         [[ $nodeType == "source" ]] && nodeId=$(source_id)
         [[ $nodeType == "sink"   ]] && nodeId=$(sink_id)
 
     done
 }
 
+# Either returns mute status or toggles mute for 
+# audio input/output.
+#   
+#   Syntax:
+#       mute input|output toggle|status
+#
 function mute() {
   
+    # Pick between input and output
     local nodeId=""
     local nodeType=""
 
@@ -68,19 +95,22 @@ function mute() {
     elif [[ -n $1 && $1 == "output" ]]; then
         nodeId=$(sink_id)
         nodeType="sink"
-    elif [[ -z $1 || $1 == "output" ]]; then
-        # Log something
-        echo "missing arguments"
+    else
         return
     fi
 
     if   [[ -n $2 && $2 == "status" ]]; then
-        
+       
+        # Print current mute status
+        echo $(pactl --format=json list ${nodeType}s | jq ".[] | select(.name == \"$(pactl get-default-${nodeType})\") | .mute")
+
+        # Listen for events and update mute status
         pactl subscribe | grep --line-buffered -E "^Event 'change' on $nodeType #$nodeId" | \
         while read line; do
             
             echo $(pactl --format=json list ${nodeType}s | jq ".[] | select(.name == \"$(pactl get-default-${nodeType})\") | .mute")
         
+            # Update nodeId every loop (it can change over time)
             [[ $nodeType == "source" ]] && nodeId=$(source_id)
             [[ $nodeType == "sink"   ]] && nodeId=$(sink_id)
 
@@ -90,38 +120,8 @@ function mute() {
     fi
 }
 
-command=""
-target=""
-args=""
-
-# Check first argument
-if [[ -n $1 && ($1 == "input" || $1 == "output") ]]; then
-    target=$1
-else
-    # Log something
-    echo "missing arguments"
-    exit
-fi
-
-# Check second argument
-if [[ -n $2 && ($2 == "mute" || $2 == "percent") ]]; then
-    command=$2
-else
-    # Log something
-    echo "missing arguments"
-    exit
-fi
-
-# Check third argument
-if   [[ -n $3 && (($command == "mute"    && ($3 == "status" || $3 == "toggle")) ||
-                  ($command == "percent" &&  $3 == "capped")) ]]; then
-    args=$3
-elif [[ (-n $3 && (($command == "mute"    && ($3 != "status" || $3 != "toggle")) ||
-                   ($command == "percent" &&  $3 != "capped"))) ||
-        (-z $3 &&   $command == "mute") ]]; then
-    # Log something
-    echo "bad arguments"
-    exit
-fi
+command=$2      # percent|mute
+target=$1       # input|output
+args=$3         # toggle|status|capped
 
 $command $target $args
