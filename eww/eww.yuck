@@ -33,9 +33,12 @@
         (wifi)
         (bluetooth) 
       )
-      (audio)
-      (brightness)
-      (battery)
+      (box
+        :class "circular-tray"
+        (audio)
+        (brightness)
+        (battery)
+      )
     )
   )
 )

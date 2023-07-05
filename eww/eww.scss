@@ -46,9 +46,9 @@ tooltip {
 }
 
 .connectivity-tray {
-  margin-right: 20px;
-  border-radius: 12px;
-  background: #232634;
+  margin-right: 5px;
+  border-radius: 25px;
+  background: #414559;
 }
 
 .wifi {
@@ -64,17 +64,32 @@ tooltip {
 }
 
 .tray {
-  padding: 0px 5px;
+  padding: 5px;
   border-radius: 12px;
   background: #232634;
 }
 
+.circular-tray {
+  padding: 0px 5px;
+  border-radius: 25px;
+  background: #414559;
+}
+
+.battery,
+.brightness,
 .audio-muted,
 .audio {
   padding: 5px;
   margin: 0px;
   border-radius: 12px;
-  background: #232634;
+  background: transparent;
+}
+
+.battery-icon,
+.brightness-icon,
+.audio-icon {
+  margin: 8px;
+  font-size: 13px;
 }
 
 .audio {
@@ -85,33 +100,10 @@ tooltip {
   color: #a5adce;
 }
 
-.audio-icon {
-  margin: 10px;
-  font-size: 15px;
-}
-
 .brightness {
   color: #e5c890;
-  padding: 5px;
-  margin: 0px;
-  border-radius: 12px;
-  background: #232634;
-}
-
-.brightness-icon {
-  margin: 10px;
-  font-size: 15px;
 }
 
 .battery {
   color: #a6d189;
-  padding: 5px;
-  margin: 0px;
-  border-radius: 12px;
-  background: #232634;
-}
-
-.battery-icon {
-  margin: 10px;
-  font-size: 15px;
 }
