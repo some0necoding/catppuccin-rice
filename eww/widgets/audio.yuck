@@ -18,6 +18,3 @@
 
 (deflisten audio-percent :initial "100" "scripts/audio output percent capped")
 (deflisten audio-muted :initial "true" "scripts/audio output mute status")
-
-;(deflisten audio-percent :initial "100" "scripts/volume percent capped")
-;(deflisten audio-muted :initial "true" "scripts/volume mute status")
