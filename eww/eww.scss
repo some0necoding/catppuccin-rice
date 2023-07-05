@@ -45,26 +45,29 @@ tooltip {
   background: transparent;
 }
 
+.tray {
+  padding: 5px;
+  border-radius: 12px;
+  background: #232634;
+}
+
 .connectivity-tray {
+  padding: 5px;
   margin-right: 5px;
   border-radius: 25px;
   background: #414559;
 }
 
-.wifi {
-  font-size: 18px;
-  padding: 0px 12px;
-}
-
+.wifi,
 .bluetooth {
+  color: #c6d0f5;
   font-size: 18px;
-  padding: 0px 12px;
+  padding: 0px 5px;
 }
 
-.tray {
-  padding: 5px;
-  border-radius: 12px;
-  background: #232634;
+.wifi {
+  padding-left: 8px;
+  padding-right: 10px;
 }
 
 .circular-tray {
