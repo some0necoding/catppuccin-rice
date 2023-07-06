@@ -26,22 +26,18 @@
     :class "right"
     :halign "end"
     :space-evenly false
-    (box
-      :class "tray"
-      :space-evenly false
-      (box 
-        :class "connectivity-tray"
-        (wifi)
-        (bluetooth) 
-      )
-      (box
-        :class "circular-tray"
-        (audio)
-        (brightness)
-        (battery)
-      )
-      (username)
+    (box 
+      :class "connectivity-tray"
+      (wifi)
+      (bluetooth) 
     )
+    (box
+      :class "circular-tray"
+      (audio)
+      (brightness)
+      (battery)
+    )
+    (username)
   )
 )
 

@@ -3,6 +3,7 @@
   font-size: 14px;
   border-radius: 12px;
   background: transparent;
+  background: rgba(35, 38, 52, 0.70)
 }
 
 tooltip {
@@ -21,6 +22,7 @@ tooltip {
   padding-right: 16px;
   border-radius: 12px;
   background: #232634;
+  background: transparent;
 }
 
 .icon,
@@ -38,17 +40,14 @@ tooltip {
   padding: 0px 12px;
   border-radius: 12px;
   background: #232634;
-}
-
-.right {
-  border-radius: 12px;
   background: transparent;
 }
 
-.tray {
+.right {
   padding: 5px;
   border-radius: 12px;
   background: #232634;
+  background: transparent;
 }
 
 .connectivity-tray {
