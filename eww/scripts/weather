@@ -1,0 +1,203 @@
+#!/bin/bash
+#
+#   Simple algorithm to create weather widget. It retrieves data from
+#   open-meteo.com API.
+#
+
+FETCH_URL="https://api.open-meteo.com/v1/forecast?latitude=45.5921&longitude=9.5734&hourly=temperature_2m,precipitation,cloudcover&timeformat=unixtime&forecast_days=3"
+LOG_FILE="$HOME/.weather.log"
+DATA="/tmp/forecast.json"
+RECORDS_INTERVAL=3600                                                                   # Records come at intervals of 1h -> 3600s
+FORECAST_DELAY=1800                                                                     # Forecast is delaied from current time by 30m -> 1800s
+
+# Logs a message with a log level
+#
+# Syntax:
+#   log LEVEL message
+#
+function log() {
+
+    if [[ -n $1 && -n $2 ]]; then 
+        printf '[%s] [%s] %s:%s\n' "$(date '+%FT%R')" "$1" "$BASH_LINENO" "$2" >> $LOG_FILE
+    fi
+
+    return 0
+}
+
+# Fetch data from API.
+function fetch() {
+
+    log "INFO" "fetching new data from $FETCH_URL..."
+    curl -o $DATA "$FETCH_URL"
+
+    exit_code=$?
+
+    [[ $exit_code != 0 ]] && local severity="ERROR" || local severity="INFO"
+    log "$severity" "Data fetch completed with exit code: $exit_code"
+
+    return $exit_code
+}
+
+# Returns the time of the record that will be used 
+# to forecast weather. Exact forecast time (EFT) is 
+# calculated as current time + 30m. The record that 
+# will be choosen is the one closer to the exact 
+# forecast time.
+function forecast_time() {
+    let "EFT = $(date +%s) + $FORECAST_DELAY"                                           # Current time + 30m
+    let "delta = $EFT % $RECORDS_INTERVAL"                                              # Delta between exact_forecast_time and next hour
+
+    if   [[ $delta == 0 ]]; then                                                        # No delta
+        forecast_time=$EFT
+    elif [[ "$delta" -gt 0 && "$delta" -lt "($RECORDS_INTERVAL / 2)" ]]; then           # ETF closer to prev hour (floor)
+        let "forecast_time = $EFT - $delta"
+    elif [[ "$delta" -ge "($RECORDS_INTERVAL / 2)" ]]; then                             # ETF closer to next hour (ceil)
+        let "forecast_time = $EFT + ($RECORDS_INTERVAL - $delta)"
+    fi
+
+    if [[ -z $forecast_time ]]; then
+        log "ERROR" "returning null"
+        return -1
+    fi
+
+    echo $forecast_time
+    return 0
+}
+
+# Returns the array index of the record that will be 
+# used to forecast weather. The index is retreved from 
+# the time array as:
+#
+#   time.indexOf(forecast_time)
+#
+# Syntax:
+#   record_index forecast_time
+#
+function record_index() {
+    
+    if [[ -n $1 ]]; then
+
+        # Fetch data if it hasn't been done before
+        if [[ ! -f $DATA ]]; then
+            log "INFO" "file $DATA is missing"
+            fetch
+            [[ $? != 0 ]] && return -1
+        fi
+
+        local exit="false"
+        while [[ $exit == "false" ]]; do
+
+            local index=$(cat $DATA | jq ".hourly | .time | index($1)")
+
+            # forecast_time is not in the list
+            if [[ "$index" == "null" || -z "$index" ]]; then
+
+                local first_elem=$(cat $DATA | jq '.hourly | .time[0]')
+                local last_elem=$(cat $DATA | jq '.hourly | .time[-1]')
+
+                if   [[ "$1" -lt "$first_elem" ]]; then                                 # forecast_time is older than first record -> an error occurred
+                    log "ERROR" "time $1 is older than first element ($first_elem)"
+                    return -1
+                elif [[ "$1" -gt "$last_elem" ]]; then                                  # forecast_time is newer than last record -> fetch new data
+                    log "INFO" "time $1 is newer than last element"
+                    fetch
+                    [[ $? != 0 ]] && return -1
+                elif [[ "$1" -ge "$first_elem" && "$1" -le "$last_elem" ]]; then        # forecast_time is not aligned or some record is missing -> an error occurred
+                    log "ERROR" "time $1 is not aligned or some record is missing"
+                    return -1
+                fi
+
+            else
+                exit="true"
+            fi
+        done
+
+        if [[ "$index" == "null" || -z "$index" ]]; then
+            log "ERROR" "returning null"
+            return -1
+        fi
+
+        echo $index
+        return 0
+    fi
+
+    log "WARN" "missing argument"
+    return -1
+}
+
+# Returns temperature record at provided index.
+#
+# Syntax:
+#   temperature index
+#
+function temperature() {
+    
+    if [[ -n $1 ]]; then
+        echo $(cat $DATA | jq ".hourly | .temperature_2m[$1]")
+    else
+        log "WARN" "missing argument"
+    fi
+
+    return 0
+}
+
+# Returns precipitation forecast at provided index.
+#
+# Syntax:
+#   precipitation index
+#
+function precipitation() {
+
+    if [[ -n $1 ]]; then
+        echo $(cat $DATA | jq ".hourly | .precipitation[$1]")
+    else
+        log "WARN" "missing argument"
+    fi
+
+    return 0
+}
+
+# Returns cloudcover forecast at provided index.
+#
+# Syntax:
+#   cloudcover index
+#
+function cloudcover() {
+
+    if [[ -n $1 ]]; then
+        echo $(cat $DATA | jq ".hourly | .cloudcover[$1]")
+    else
+        log "WARN" "missing argument"
+    fi
+
+    return 0
+}
+
+# Returns weather forecast based on current time
+function forecast() {
+    
+    local forecast_time=$(forecast_time)
+    [[ $? != 0 ]] && return -1
+
+    local index=$(record_index $forecast_time)
+    [[ $? != 0 ]] && return -1
+ 
+    local rain=$(precipitation $index)
+    local clouds=$(cloudcover $index)
+
+    if   [[ "$rain" == 0 && "$clouds" == 0 ]]; then
+        echo "sunny"
+    elif [[ "$rain" == 0 && "$clouds" -gt 0 && "$clouds" -lt 30 ]]; then
+        echo "soft clouds"
+    elif [[ "$rain" == 0 && "$clouds" -ge 30 ]]; then
+        echo "clouds"
+    elif [[ "$rain" -gt 0 && "$rain" -lt 4 ]]; then
+        echo "soft rain"
+    elif [[ "$rain" -ge 4 ]]; then
+        echo "rain"
+    fi
+
+    return 0
+}
+
+forecast
