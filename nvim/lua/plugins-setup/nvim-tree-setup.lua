@@ -5,25 +5,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- set termguicolors to enable highlight groups
--- vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 
 --- my on attach ---
---
--- This function has been generated from your
---   view.mappings.list
---   view.mappings.custom_only
---   remove_keymaps
---
--- You should add this function to your configuration and set on_attach = on_attach in the nvim-tree setup call.
---
--- Although care was taken to ensure correctness and completeness, your review is required.
---
--- Please check for the following issues in auto generated content:
---   "Mappings removed" is as you expect
---   "Mappings migrated" are correct
---
--- Please see https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach for assistance in migrating.
---
 
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
@@ -31,7 +15,6 @@ local function on_attach(bufnr)
   local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-
 
   -- Default mappings. Feel free to modify or remove as you wish.
   --
@@ -74,24 +57,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
   -- END_DEFAULT_ON_ATTACH
 
-  -- delete defaults
-  vim.keymap.del('n', '<BS>',  { buffer = bufnr }) -- api.node.navigate.parent_close,        opts('Close Directory'))
-  vim.keymap.del('n', '<C-e>', { buffer = bufnr }) -- api.node.open.replace_tree_buffer,     opts('Open: In Place'))
-  vim.keymap.del('n', '>',     { buffer = bufnr }) -- api.node.navigate.sibling.next,        opts('Next Sibling'))
-  vim.keymap.del('n', '<',     { buffer = bufnr }) -- api.node.navigate.sibling.prev,        opts('Previous Sibling'))
-  vim.keymap.del('n', '.',     { buffer = bufnr }) -- api.node.run.cmd,                      opts('Run Command'))
-  vim.keymap.del('n', 'bmv',   { buffer = bufnr }) -- api.marks.bulk.move,                   opts('Move Bookmarked'))
-  vim.keymap.del('n', 'B',     { buffer = bufnr }) -- api.tree.toggle_no_buffer_filter,      opts('Toggle No Buffer'))
-  vim.keymap.del('n', 'C',     { buffer = bufnr }) -- api.tree.toggle_git_clean_filter,      opts('Toggle Git Clean'))
-  vim.keymap.del('n', '[c',    { buffer = bufnr }) -- api.node.navigate.git.prev,            opts('Prev Git'))
-  vim.keymap.del('n', ']c',    { buffer = bufnr }) -- api.node.navigate.git.next,            opts('Next Git'))
-  vim.keymap.del('n', 'D',     { buffer = bufnr }) -- api.fs.trash,                          opts('Trash'))
-  vim.keymap.del('n', ']e',    { buffer = bufnr }) -- api.node.navigate.diagnostics.next,    opts('Next Diagnostic'))
-  vim.keymap.del('n', '[e',    { buffer = bufnr }) -- api.node.navigate.diagnostics.prev,    opts('Prev Diagnostic'))
-  vim.keymap.del('n', 'm',     { buffer = bufnr }) -- api.marks.toggle,                      opts('Toggle Bookmark'))
-  vim.keymap.del('n', 'O',     { buffer = bufnr }) -- api.node.open.no_window_picker,        opts('Open: No Window Picker'))
-  vim.keymap.del('n', 'U',     { buffer = bufnr }) -- api.tree.toggle_custom_filter,         opts('Toggle Hidden'))
-
   -- Mappings migrated from view.mappings.list
   --
   -- You will need to insert "your code goes here" for any mappings with a custom action_cb
@@ -100,23 +65,28 @@ end
 
 -- empty setup using defaults
 require("nvim-tree").setup({
-	on_attach = on_attach,
+  on_attach = on_attach,
+  sort_by = "case_sensitive",
+  git = {
+    enable = true,
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+    highlight_git = true,
+    icons = {
+      show = {
+        git = true,
+      },
+    },
+  },
+  filters = {
+	dotfiles = true,
+  },
+  sync_root_with_cwd = true,
 })
 
 -- display icons
 require("plugins-setup/nvim-web-devicons-setup")
-
--- OR setup with some options
-require("nvim-tree").setup({
-	sort_by = "case_sensitive",
-	view = {
-		width = 30,
-	},
-	renderer = {
-		group_empty = true,
-	},
-	filters = {
-		dotfiles = true,
-	},
-	sync_root_with_cwd = true,
-})
