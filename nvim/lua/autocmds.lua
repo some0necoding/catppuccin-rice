@@ -14,12 +14,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     command = "silent loadview"
 })
 
--- open nvim-tree when entering buffer
-vim.api.nvim_create_autocmd({ "BufWinEnter", "BufNewFile" }, {
-    pattern = { "*.*" },
-    command = "NvimTreeOpen"
-})
-
 -- configure c development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "*.c", "*.h", "*.cpp", "*.hpp", "*.go", },
