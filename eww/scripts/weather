@@ -8,7 +8,6 @@ FETCH_URL="https://api.open-meteo.com/v1/forecast?latitude=45.5921&longitude=9.5
 LOG_FILE="$HOME/.weather.log"
 DATA="/tmp/forecast.json"
 RECORDS_INTERVAL=3600                                                                   # Records come at intervals of 1h -> 3600s
-FORECAST_DELAY=1800                                                                     # Forecast is delaied from current time by 30m -> 1800s
 
 # Logs a message with a log level
 #
@@ -39,29 +38,25 @@ function fetch() {
 }
 
 # Returns the time of the record that will be used 
-# to forecast weather. Exact forecast time (EFT) is 
-# calculated as current time + 30m. The record that 
-# will be choosen is the one closer to the exact 
-# forecast time.
+# to forecast weather. The record that will be choosen 
+# is the one closer to current time.
 function forecast_time() {
-    let "EFT = $(date +%s) + $FORECAST_DELAY"                                           # Current time + 30m
-    let "delta = $EFT % $RECORDS_INTERVAL"                                              # Delta between exact_forecast_time and next hour
+    local time=$(date +%s)                                                              # Current time
+    let "delta = $time % $RECORDS_INTERVAL"                                             # Delta between time and next hour
 
     if   [[ $delta == 0 ]]; then                                                        # No delta
-        forecast_time=$EFT
-    elif [[ "$delta" -gt 0 && "$delta" -lt "($RECORDS_INTERVAL / 2)" ]]; then           # ETF closer to prev hour (floor)
-        let "forecast_time = $EFT - $delta"
-    elif [[ "$delta" -ge "($RECORDS_INTERVAL / 2)" ]]; then                             # ETF closer to next hour (ceil)
-        let "forecast_time = $EFT + ($RECORDS_INTERVAL - $delta)"
+        echo $time
+        return 0
+    elif [[ "$delta" -gt 0 && "$delta" -lt "($RECORDS_INTERVAL / 2)" ]]; then           # time closer to prev hour (floor)
+        echo $(( $time - $delta ))
+        return 0
+    elif [[ "$delta" -ge "($RECORDS_INTERVAL / 2)" ]]; then                             # time closer to next hour (ceil)
+        echo $(( $time + ($RECORDS_INTERVAL - $delta) ))
+        return 0
     fi
 
-    if [[ -z $forecast_time ]]; then
-        log "ERROR" "returning null"
-        return -1
-    fi
-
-    echo $forecast_time
-    return 0
+    log "ERROR" "returning null"
+    return -1
 }
 
 # Returns the array index of the record that will be 
@@ -133,7 +128,14 @@ function record_index() {
 function temperature() {
     
     if [[ -n $1 ]]; then
-        echo $(cat $DATA | jq ".hourly | .temperature_2m[$1]")
+
+        local temp=$(cat $DATA | jq ".hourly | .temperature_2m[$1]")
+
+        if [[ $temp != -* ]]; then
+            temp="+$temp"
+        fi
+
+        echo $temp
     else
         log "WARN" "missing argument"
     fi
@@ -182,21 +184,23 @@ function forecast() {
     local index=$(record_index $forecast_time)
     [[ $? != 0 ]] && return -1
  
+    local temp=$(temperature $index)
     local rain=$(precipitation $index)
     local clouds=$(cloudcover $index)
 
-    if   [[ "$rain" == 0 && "$clouds" == 0 ]]; then
-        echo "sunny"
-    elif [[ "$rain" == 0 && "$clouds" -gt 0 && "$clouds" -lt 30 ]]; then
-        echo "soft clouds"
-    elif [[ "$rain" == 0 && "$clouds" -ge 30 ]]; then
-        echo "clouds"
+    if   [[ "$rain" == 0 && "$clouds" -le 30 ]]; then
+        local icon="󰖙 "    # sunny
+    elif [[ "$rain" == 0 && "$clouds" -gt 30 && "$clouds" -lt 50 ]]; then
+        local icon="󰖕 "    # soft clouds
+    elif [[ "$rain" == 0 && "$clouds" -ge 50 ]]; then
+        local icon="󰖐 "    # clouds
     elif [[ "$rain" -gt 0 && "$rain" -lt 4 ]]; then
-        echo "soft rain"
+        local icon="󰖗 "    # soft rain
     elif [[ "$rain" -ge 4 ]]; then
-        echo "rain"
+        local icon="󰖖 "    # rain
     fi
 
+    echo "${temp}°C $icon"
     return 0
 }
 

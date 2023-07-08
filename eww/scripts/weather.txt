@@ -1,0 +1,12 @@
+foggy           󰖑
+cloudy          󰖐
+soft clouds     󰖕
+lightening      󰖓
+rainy           󰖖
+soft rain       󰖗
+snowy           󰼶
+soft snow       󰖘
+windy           󰖝
+sunny           󰖙
+night           󰖔
+cloudy night    󰼱
