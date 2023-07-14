@@ -1,12 +1,4 @@
-# KED'S WOFI CONFIG
-# MAIN CONFIG FILE [CONFIG]
-# (C) 2023 Kedislav - File under GNU GPL v3.0
-#////////////////////////////////////////////////////////////////
-# Custom scripts are saved in the "scripts" directory.
-# Styling can be found in the "style.css" file.
-#////////////////////////////////////////////////////////////////
-
-width=360
+width=500
 height=220
 mode=drun
 
@@ -16,4 +8,5 @@ prompt=
 
 show_all=false
 print_line_num=true
-allow_images=true
+allow_images=false
+no_actions=true
