@@ -1,10 +1,10 @@
-(include "./widgets/battery.yuck")
-(include "./widgets/brightness.yuck")
-(include "./widgets/audio.yuck")
-(include "./widgets/wifi.yuck")
-(include "./widgets/bluetooth.yuck")
-(include "./widgets/workspaces.yuck")
-(include "./widgets/username.yuck")
+(include "./widgets/bar/battery.yuck")
+(include "./widgets/bar/brightness.yuck")
+(include "./widgets/bar/audio.yuck")
+(include "./widgets/bar/wifi.yuck")
+(include "./widgets/bar/bluetooth.yuck")
+(include "./widgets/bar/workspaces.yuck")
+(include "./widgets/bar/username.yuck")
 
 (defwidget left []
   (box 

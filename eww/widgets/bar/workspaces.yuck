@@ -34,4 +34,4 @@
   )
 )
 
-(deflisten active :initial "1" "scripts/workspaces active")
+(deflisten active :initial "1" "scripts/bar/workspaces active")
