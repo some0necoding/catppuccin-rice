@@ -2,8 +2,9 @@
   font-family: "FiraCode";
   font-size: 14px;
   border-radius: 12px;
-  background: rgba(48, 52, 70, 0.7);
-  color: #fff;
+  background: #f5e0dc;
+  color: #131020;
+  font-weight: 500;
 }
 
 tooltip {
@@ -28,11 +29,11 @@ tooltip {
 .icon-active {
   padding: 0px 10px;
   background: transparent;
-  color: #c6d0f5;
+  color: #ea999c;
 }
 
 .icon-active {
-  color: #fff;
+  color: #131020;
 }
 
 .center {
@@ -51,12 +52,12 @@ tooltip {
   padding: 5px;
   margin-right: 5px;
   border-radius: 25px;
-  background: #51576d;
+  background: #ea999c;
 }
 
 .wifi,
 .bluetooth {
-  color: #c6d0f5;
+  color: #f5e0dc;
   font-size: 18px;
   padding: 0px 5px;
 }
@@ -69,7 +70,7 @@ tooltip {
 .circular-tray {
   padding: 0px 5px;
   border-radius: 25px;
-  background: #51576d;
+  background: #ea999c;
 }
 
 .battery,
@@ -90,19 +91,19 @@ tooltip {
 }
 
 .audio {
-  color: #f4b8e4;
+  color: #f5e0dc;
 }
 
 .audio-muted {
-  color: #a5adce;
+  color: #f5e0dc;
 }
 
 .brightness {
-  color: #e5c890;
+  color: #f5e0dc;
 }
 
 .battery {
-  color: #a6d189;
+  color: #f5e0dc;
 }
 
 .username {
