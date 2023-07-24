@@ -24,7 +24,7 @@ require('plugins-setup/lualine-setup')
 require('plugins-setup/colorschemes-setup')
 
 -- colorscheme
-require('colorscheme').set('catppuccin-frappe')
+require('colorscheme').set('catppuccin-mocha')
 
 -- keybindings
 local key = require('key')
