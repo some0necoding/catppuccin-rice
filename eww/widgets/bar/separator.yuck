@@ -1,0 +1,6 @@
+(defwidget sep []
+  (box
+    :class "sep"
+    :width 3
+  )
+)

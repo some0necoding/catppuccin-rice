@@ -53,11 +53,12 @@ tooltip {
   margin-right: 5px;
   border-radius: 25px;
   background: #ea999c;
+  background: transparent;
 }
 
 .wifi,
 .bluetooth {
-  color: #f5e0dc;
+  color: #131020;
   font-size: 18px;
   padding: 0px 5px;
 }
@@ -67,10 +68,16 @@ tooltip {
   padding-right: 10px;
 }
 
+.sep {
+  background: #131020;
+  margin: 4px 0px;
+}
+
 .circular-tray {
   padding: 0px 5px;
   border-radius: 25px;
   background: #ea999c;
+  background: transparent;
 }
 
 .battery,
@@ -91,19 +98,19 @@ tooltip {
 }
 
 .audio {
-  color: #f5e0dc;
+  color: #131020;
 }
 
 .audio-muted {
-  color: #f5e0dc;
+  color: #131020;
 }
 
 .brightness {
-  color: #f5e0dc;
+  color: #131020;
 }
 
 .battery {
-  color: #f5e0dc;
+  color: #131020;
 }
 
 .username {

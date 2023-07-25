@@ -5,6 +5,7 @@
 (include "./widgets/bar/bluetooth.yuck")
 (include "./widgets/bar/workspaces.yuck")
 (include "./widgets/bar/username.yuck")
+(include "./widgets/bar/separator.yuck")
 
 (defwidget left []
   (box 
@@ -31,12 +32,14 @@
       (wifi)
       (bluetooth) 
     )
+    (sep)
     (box
       :class "circular-tray"
       (audio)
       (brightness)
       (battery)
     )
+    (sep)
     (username)
   )
 )
