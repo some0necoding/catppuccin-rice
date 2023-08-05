@@ -1,7 +1,7 @@
 window {
 	margin: 0px;
 	border-radius: 8px;
-	border: 1.5px solid #8caaee;
+	border: 1.5px solid #b48ead;
 	background-color: #303446;
 	font-size: 16;
 }
@@ -11,7 +11,7 @@ window {
 	border: none;
 	border-radius: 5px;
 	color: #292c3c;
-	background-color: #8caaee;
+	background-color: #b48ead;
 }
 
 #input:focus, #input:active, #input:hover {
