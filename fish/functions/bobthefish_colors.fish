@@ -14,7 +14,7 @@ function bobthefish_colors -S -d 'Define a custom bobthefish color scheme'
   #set -x color_path_nowrite             magenta black
   #set -x color_path_nowrite_basename    magenta black --bold
 
-  #set -x color_repo                     green black
+  set -x color_repo                     b48ead black
   #set -x color_repo_work_tree           black black --bold
   #set -x color_repo_dirty               brred black
   #set -x color_repo_staged              yellow black
@@ -25,7 +25,7 @@ function bobthefish_colors -S -d 'Define a custom bobthefish color scheme'
 
   #set -x color_vagrant                  brcyan black
   #set -x color_k8s                      magenta white --bold
-  set -x color_username                  b48ead  black --bold
+  set -x color_username                 b48ead  black --bold
   #set -x color_hostname                 white black
   #set -x color_rvm                      brmagenta black --bold
   #set -x color_virtualfish              brblue black --bold
