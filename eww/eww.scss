@@ -73,35 +73,20 @@ tooltip {
   margin: 4px 0px;
 }
 
-.circular-tray {
+.tray {
   padding: 0px 5px;
-  border-radius: 25px;
-  background: #ea999c;
-  background: transparent;
 }
 
 .battery,
 .brightness,
-.audio-muted,
 .audio {
-  padding: 5px;
-  margin: 0px;
+  padding: 0px 8px;
   border-radius: 12px;
   background: transparent;
-}
-
-.battery-icon,
-.brightness-icon,
-.audio-icon {
-  margin: 8px;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .audio {
-  color: #2e3440;
-}
-
-.audio-muted {
   color: #2e3440;
 }
 

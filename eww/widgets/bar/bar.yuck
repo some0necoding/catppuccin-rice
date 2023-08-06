@@ -1,5 +1,5 @@
-(include "./components/rounded/battery.yuck")
-(include "./components/rounded/brightness.yuck")
+(include "./components/minimal/battery.yuck")
+(include "./components/minimal/brightness.yuck")
 (include "./components/minimal/audio.yuck")
 (include "./components/minimal/wifi.yuck")
 (include "./components/minimal/bluetooth.yuck")
@@ -34,7 +34,7 @@
     )
     (sep)
     (box
-      :class "circular-tray"
+      :class "tray"
       (audio)
       (brightness)
       (battery)

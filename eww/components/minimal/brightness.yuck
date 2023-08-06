@@ -1,0 +1,8 @@
+(defwidget brightness []
+  (box
+    :class "brightness"
+    (label
+      :text ""    ;or "󱠃"
+    )
+  )
+)
