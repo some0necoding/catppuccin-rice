@@ -1,57 +1,4 @@
-(include "./widgets/bar/battery.yuck")
-(include "./widgets/bar/brightness.yuck")
-(include "./widgets/bar/audio.yuck")
-(include "./widgets/bar/wifi.yuck")
-(include "./widgets/bar/bluetooth.yuck")
-(include "./widgets/bar/workspaces.yuck")
-(include "./widgets/bar/username.yuck")
-(include "./widgets/bar/separator.yuck")
-
-(defwidget left []
-  (box 
-    :class "left"
-    :halign "start"
-    (workspaces) 
-  )
-)
-
-(defwidget center []
-  (box 
-    :class "center"
-    time
-  )
-)
-
-(defwidget right []
-  (box
-    :class "right"
-    :halign "end"
-    :space-evenly false
-    (box 
-      :class "connectivity-tray"
-      (wifi)
-      (bluetooth) 
-    )
-    (sep)
-    (box
-      :class "circular-tray"
-      (audio)
-      (brightness)
-      (battery)
-    )
-    (sep)
-    (username)
-  )
-)
-
-(defwidget bar []
-  (centerbox
-    :class "bar"
-    (left)
-    (center)
-    (right)
-  )
-)
+(include "./widgets/bar/bar.yuck")
 
 (defwindow bar
     :monitor 0
@@ -67,5 +14,3 @@
     :wm-ignore false
     (bar)
 )
-
-(defpoll time :interval "1s" "date '+%H:%M'")

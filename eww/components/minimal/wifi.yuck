@@ -7,4 +7,4 @@
   )
 )
 
-(defpoll wifi-icon :interval "1s" "scripts/bar/network icon")
+(defpoll wifi-icon :interval "1s" "scripts/minimal/network icon")

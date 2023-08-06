@@ -1,0 +1,10 @@
+(defwidget battery []
+  (box
+    :class "battery"
+    (label
+      :text "${audio-muted == "true" ? "󰝟" : "󰕾"}"
+    )
+  )
+)
+
+(deflisten audio-muted :initial "true" "scripts/rounded/audio output mute statuaudio output mute statuss")

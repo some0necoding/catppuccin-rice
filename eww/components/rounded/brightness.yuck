@@ -16,4 +16,4 @@
   ) 
 )
 
-(deflisten brightness-percent :initial "100" "scripts/bar/brightness percent")
+(deflisten brightness-percent :initial "100" "scripts/minimal/brightness percent")

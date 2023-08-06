@@ -16,4 +16,4 @@
   )
 )
 
-(deflisten battery-percent :initial "100" "scripts/bar/battery percent")
+(deflisten battery-percent :initial "100" "scripts/minimal/battery percent")

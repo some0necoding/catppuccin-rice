@@ -1,0 +1,71 @@
+(include "./components/rounded/battery.yuck")
+(include "./components/rounded/brightness.yuck")
+(include "./components/minimal/audio.yuck")
+(include "./components/minimal/wifi.yuck")
+(include "./components/minimal/bluetooth.yuck")
+(include "./components/others/workspaces.yuck")
+(include "./components/others/username.yuck")
+(include "./components/others/separator.yuck")
+
+(defwidget left []
+  (box 
+    :class "left"
+    :halign "start"
+    (workspaces) 
+  )
+)
+
+(defwidget center []
+  (box 
+    :class "center"
+    time
+  )
+)
+
+(defwidget right []
+  (box
+    :class "right"
+    :halign "end"
+    :space-evenly false
+    (box 
+      :class "connectivity-tray"
+      (wifi)
+      (bluetooth) 
+    )
+    (sep)
+    (box
+      :class "circular-tray"
+      (audio)
+      (brightness)
+      (battery)
+    )
+    (sep)
+    (username)
+  )
+)
+
+(defwidget bar []
+  (centerbox
+    :class "bar"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwindow bar
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "12px"
+                        :width "99%"
+                        :height "38px"
+                        :anchor "top center")
+    :stacking "fg"
+    :exclusive true 
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "dock"
+    :wm-ignore false
+    (bar)
+)
+
+(defpoll time :interval "1s" "date '+%H:%M'")

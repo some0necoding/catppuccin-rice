@@ -1,5 +1,9 @@
 #!/bin/bash
 
+command=$2      # percent|mute
+target=$1       # input|output
+args=$3         # toggle|status|capped
+
 # PipeWire default sink id
 function sink_id() {
     sinkId=$(pactl --format=json list sinks | \
@@ -33,16 +37,16 @@ function source_id() {
 function percent() {
 
     # Check if percent should be capped
-    [[ -n $2 && $2 == "capped" ]] && local isCapped=true || local isCapped=false
+    [[ -n $args && $args == "capped" ]] && local isCapped=true || local isCapped=false
 
     # Pick between input and output
     local nodeId=""
     local nodeType=""
 
-    if   [[ -n $1 && $1 == "input" ]]; then
+    if   [[ -n $target && $target == "input" ]]; then
         nodeId=$(source_id)
         nodeType="source"
-    elif [[ -n $1 && $1 == "output" ]]; then
+    elif [[ -n $target && $target == "output" ]]; then
         nodeId=$(sink_id)
         nodeType="sink"
     else
@@ -89,17 +93,17 @@ function mute() {
     local nodeId=""
     local nodeType=""
 
-    if   [[ -n $1 && $1 == "input" ]]; then
+    if   [[ -n $target && $target == "input" ]]; then
         nodeId=$(source_id)
         nodeType="source"
-    elif [[ -n $1 && $1 == "output" ]]; then
+    elif [[ -n $target && $target == "output" ]]; then
         nodeId=$(sink_id)
         nodeType="sink"
     else
         return
     fi
 
-    if   [[ -n $2 && $2 == "status" ]]; then
+    if   [[ -n $args && $args == "status" ]]; then
        
         # Print current mute status
         echo $(pactl --format=json list ${nodeType}s | jq ".[] | select(.name == \"$(pactl get-default-${nodeType})\") | .mute")
@@ -115,13 +119,9 @@ function mute() {
             [[ $nodeType == "sink"   ]] && nodeId=$(sink_id)
 
         done
-    elif [[ -n $2 && $2 == "toggle" ]]; then
+    elif [[ -n $args && $args == "toggle" ]]; then
         wpctl set-mute $nodeId toggle
     fi
 }
-
-command=$2      # percent|mute
-target=$1       # input|output
-args=$3         # toggle|status|capped
 
 $command $target $args
