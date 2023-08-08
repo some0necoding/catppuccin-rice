@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#   Script to retrieve info about speakers.
+#
+
+default_sink_id() {
+    echo $(stdbuf -oL pactl -f json list sinks | jq ".[] | select(.name == \"$(pactl get-default-sink)\") | .index")
+}
+
+get_percent() {
+    local volume=$(pactl --format=json list sinks | \
+                   jq "[.[] | select(.index == $(default_sink_id)) | \
+                        .volume | \
+                        .[] | \
+                        .value_percent | \
+                        match(\"[0-9]*\") | \
+                        .string | \
+                        tonumber] | \
+                        add/length")
+
+    echo $volume
+}
+
+get_mute() {
+    local mute=$(pactl --format=json list sinks | \
+                 jq ".[] | select(.index == $(default_sink_id)) | .mute")
+
+    echo $mute
+}
+
+percent() {
+
+    local sink_id=$(default_sink_id)
+    echo $(get_percent)
+
+    stdbuf -oL pactl subscribe | grep --line-buffered -E "^Event 'change' on sink #$sink_id" | while read -r line; do
+        local percent=$(get_percent)
+
+        if [[ -n $1 && $1 == "capped" && $percent -gt 100 ]]; then
+            echo 100
+        else
+            echo $percent
+        fi
+    done
+}
+
+mute() {
+    stdbuf -oL amixer events | grep --line-buffered -E "^event value:.*'Master Playback Switch'" | while read -r line; do
+        echo $(get_mute)
+    done
+}
+
+mute_toggle() {
+    amixer set Master toggle &> /dev/null
+}
+
+if [[ -n $1 && $1 == "id" && -z $2 ]]; then
+    echo $(default_sink_id)
+elif [[ -n $1 && $1 == "percent" && -z $2 ]]; then
+    percent
+elif [[ -n $1 && $1 == "percent" && -n $2 && $2 == "capped" ]]; then
+    percent capped
+elif [[ -n $1 && $1 == "mute" && -z $2 ]]; then
+    mute
+elif [[ -n $1 && $1 == "mute" && -n $2 && $2 == "toggle" ]]; then
+    mute_toggle
+fi

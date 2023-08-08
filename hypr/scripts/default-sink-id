@@ -1,9 +1,0 @@
-#!/bin/bash
-
-defaultSinkId=$(pactl --format=json list sinks | \
-              jq ".[] | select(.name == \"$(pactl get-default-sink)\") | 
-                        .properties | 
-                        .[\"object.id\"] | 
-                        tonumber")
-
-echo $defaultSinkId

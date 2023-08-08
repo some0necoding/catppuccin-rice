@@ -1,5 +1,11 @@
 #!/bin/bash
 
+grace=5
+
+if [[ -n $1 && $1 == "now" ]]; then
+    grace=0
+fi
+
 swaylock -enf \
 	-i ~/.config/wallpapers/wallpaper-4.png \
     --indicator-x-position 400 \
@@ -24,7 +30,7 @@ swaylock -enf \
 	--text-ver-color 88c0d0ff \
     --text-wrong-color e78284ff \
 	--clock \
-    --grace 5 \
+    --grace $grace \
     --timestr %R \
     --datestr "%A %d %B %Y" \
     --fade-in 0.2 \

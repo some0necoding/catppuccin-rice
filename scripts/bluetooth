@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function powered() {
+    echo $(bluetoothctl show | grep -oE "Powered: (yes|no)" | awk '{ print $2 }')
+}
+
+function connected() {
+    local connected=$(bluetoothctl devices Connected)
+
+    if [[ $connected == "" ]]; then
+        echo "no"
+    else
+        echo "yes"
+    fi
+}
+
+function connected_device() {
+    echo $(bluetoothctl devices Connected | awk '{ print $3 }') 
+}
+
+function status() {
+    local powered=$(powered)
+    local connected=$(connected)
+
+    if [[ $powered == "no" ]]; then
+        echo "unpowered"
+    elif [[ $powered == "yes" && $connected == "no" ]]; then
+        echo "disconnected"
+    elif [[ $powered == "yes" && $connected == "yes" ]]; then
+        echo "connected"
+    fi
+}
+
+function icon() {
+    local status=$(status)
+
+    if [[ $status == "unpowered" ]]; then
+        echo "󰂲"
+    elif [[ $status == "disconnected" ]]; then
+        echo "󰂯"
+    elif [[ $status == "connected" ]]; then
+        echo "󰂱"
+    fi
+}
+
+if [[ -n $1 && $1 == "powered" ]]; then
+    echo $(powered)
+elif [[ -n $1 && $1 == "status" ]]; then
+    echo $(status)
+elif [[ -n $1 && $1 == "connected" ]]; then
+    echo $(connected)
+elif [[ -n $1 && $1 == "device" ]]; then
+    echo $(connected_device)
+elif [[ -n $1 && $1 == "icon" ]]; then
+    echo $(icon)
+fi
