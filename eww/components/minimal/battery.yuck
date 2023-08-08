@@ -2,7 +2,9 @@
   (box
     :class "battery"
     (label
-      :text "󰁹"
+      :text "${battery-icon}"
     )
   )
 )
+
+(defpoll battery-icon :interval "1s" "$HOME/.config/scripts/battery icon")

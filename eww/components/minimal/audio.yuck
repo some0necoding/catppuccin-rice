@@ -2,7 +2,9 @@
   (box
     :class "audio"
     (label
-      :text "󰝟"
+      :text "${audio-muted == "true" ? "󰝟" : "󰕾"}"
     )
   )
 )
+
+(deflisten audio-muted :initial "true" "$HOME/.config/scripts/speakers mute")

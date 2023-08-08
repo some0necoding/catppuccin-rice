@@ -2,42 +2,43 @@
 
 root="/sys/class/backlight/intel_backlight"
 
-function percent() {
-
+function get_percent() {
     max=$(cat $root/max_brightness)
     current=$(cat $root/brightness)
-
     echo $(( (100 * $current) / $max ))
 }
 
 function icon() {
-    local percent=$(percent) 
+    inotifywait -qm -e modify "$root/brightness" | while read file_path file_event file_name; do
 
-    if [[ $percent -le 10 ]]; then
-        echo "󱩎"
-    elif [[ $percent -le 20 ]]; then
-        echo "󱩏"
-    elif [[ $percent -le 30 ]]; then
-        echo "󱩐"
-    elif [[ $percent -le 40 ]]; then
-        echo "󱩑"
-    elif [[ $percent -le 50 ]]; then
-        echo "󱩒"
-    elif [[ $percent -le 60 ]]; then
-        echo "󱩓"
-    elif [[ $percent -le 70 ]]; then
-        echo "󱩔"
-    elif [[ $percent -le 80 ]]; then
-        echo "󱩕"
-    elif [[ $percent -le 90 ]]; then
-        echo "󱩖"
-    elif [[ $percent -le 100 ]]; then
-        echo "󰛨"
-    fi
+        local percent=$(get_percent) 
+
+        if [[ $percent -le 10 ]]; then
+            echo "󱩎"
+        elif [[ $percent -le 20 ]]; then
+            echo "󱩏"
+        elif [[ $percent -le 30 ]]; then
+            echo "󱩐"
+        elif [[ $percent -le 40 ]]; then
+            echo "󱩑"
+        elif [[ $percent -le 50 ]]; then
+            echo "󱩒"
+        elif [[ $percent -le 60 ]]; then
+            echo "󱩓"
+        elif [[ $percent -le 70 ]]; then
+            echo "󱩔"
+        elif [[ $percent -le 80 ]]; then
+            echo "󱩕"
+        elif [[ $percent -le 90 ]]; then
+            echo "󱩖"
+        elif [[ $percent -le 100 ]]; then
+            echo "󰛨"
+        fi
+    done
 }
 
 if [[ -n $1 && $1 == "percent" ]]; then
-    echo $(percent)
+    echo $(get_percent)
 elif [[ -n $1 && $1 == "icon" ]]; then
-    echo $(icon)
+    icon
 fi

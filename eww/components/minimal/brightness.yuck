@@ -2,7 +2,9 @@
   (box
     :class "brightness"
     (label
-      :text ""    ;or "󱠃"
+      :text "${brightness-icon}"
     )
   )
 )
+
+(deflisten brightness-icon :initial "󰛨" "$HOME/.config/scripts/brightness icon")
