@@ -1,6 +1,7 @@
 (defwidget audio []
   (box
     :class "audio"
+    :tooltip "${audio-percent}%"
     (label
       :text "${audio-muted == "true" ? "󰝟" : "󰕾"}"
     )
@@ -8,3 +9,4 @@
 )
 
 (deflisten audio-muted :initial "true" "$HOME/.config/scripts/speakers mute")
+(deflisten audio-percent :initial "100" "$HOME/.config/scripts/speakers percent")
