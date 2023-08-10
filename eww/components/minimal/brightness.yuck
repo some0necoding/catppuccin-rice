@@ -1,6 +1,7 @@
 (defwidget brightness []
   (box
     :class "brightness"
+    :tooltip "${brightness-percent}%"
     (label
       :text "${brightness-icon}"
     )
@@ -8,3 +9,4 @@
 )
 
 (deflisten brightness-icon :initial "󰛨" "$HOME/.config/scripts/brightness icon")
+(defpoll brightness-percent :interval "1s" "$HOME/.config/scripts/brightness percent")

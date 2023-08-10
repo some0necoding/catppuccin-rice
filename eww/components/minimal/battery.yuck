@@ -1,6 +1,7 @@
 (defwidget battery []
   (box
     :class "battery"
+    :tooltip "${battery-percent}%"
     (label
       :text "${battery-icon}"
     )
@@ -8,3 +9,4 @@
 )
 
 (defpoll battery-icon :interval "1s" "$HOME/.config/scripts/battery icon")
+(defpoll battery-percent :interval "1s" "$HOME/.config/scripts/battery percent")
