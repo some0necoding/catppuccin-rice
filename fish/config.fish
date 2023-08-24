@@ -3,6 +3,7 @@ if status is-interactive
 	set -gx XCURSOR_THEME "Breeze_Default"
 	set -gx XCURSOR_SIZE 24
     set -gx XDG_PICTURES_DIR ~/Pictures
+    set -gx GNUPGHOME ~/.gnupg
 
     export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 end
