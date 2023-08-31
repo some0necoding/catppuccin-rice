@@ -8,11 +8,12 @@ vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
     command = "mkview"
 })
 
+-- TODO: this doesn't work
 -- make folds persistent: restore folds when opening buffers
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-    pattern = { "*.*" },
-    command = "silent loadview"
-})
+--vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+--    pattern = { "*.*" },
+--    command = "silent loadview"
+--})
 
 -- configure c development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
