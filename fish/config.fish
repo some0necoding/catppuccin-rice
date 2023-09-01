@@ -6,7 +6,6 @@ if status is-interactive
     set -gx GNUPGHOME ~/.gnupg
 
     export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-    neofetch
 end
 
 alias ls="lsd"

@@ -1147,8 +1147,8 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
         return
     end
 
-    __bobthefish_glyphs
-    __bobthefish_colors $theme_color_scheme
+    #    __bobthefish_glyphs
+    #__bobthefish_colors $theme_color_scheme
 
     type -q bobthefish_colors
     and bobthefish_colors

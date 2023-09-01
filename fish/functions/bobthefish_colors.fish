@@ -1,7 +1,7 @@
 function bobthefish_colors -S -d 'Define a custom bobthefish color scheme'
 
   # Optionally include a base color scheme
-  __bobthefish_colors nord
+  #__bobthefish_colors nord
 
   # Then override everything you want!
   # Note that these must be defined with `set -x`
