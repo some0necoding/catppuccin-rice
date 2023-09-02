@@ -1,5 +1,5 @@
 #!/bin/bash
 
 swayidle -w \
-    timeout 300 "~/.config/hypr/scripts/lock" \
-    timeout 600 "~/.config/hypr/scripts/suspend"
+    timeout 300 "~/.config/scripts/lock" \
+    timeout 600 "~/.config/scripts/suspend"
