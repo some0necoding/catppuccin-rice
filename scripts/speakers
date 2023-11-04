@@ -54,6 +54,18 @@ mute_toggle() {
     amixer set Master toggle &> /dev/null
 }
 
+volume() {
+    if [[ -n $1 && $1 == "down" ]]; then 
+        amixer set Master 5%- &> /dev/null
+    elif [[ -n $1 && $1 == "up" ]]; then 
+        amixer set Master 5%+ &> /dev/null
+    fi
+    if [[ -n $1 && ($1 == "down" || $1 == "up") ]]; then
+        percent=$(get_percent)
+        dunstify -h int:value:$percent "speakers"
+    fi
+}
+
 if [[ -n $1 && $1 == "id" && -z $2 ]]; then
     echo $(default_sink_id)
 elif [[ -n $1 && $1 == "percent" && -z $2 ]]; then
@@ -64,4 +76,8 @@ elif [[ -n $1 && $1 == "mute" && -z $2 ]]; then
     mute
 elif [[ -n $1 && $1 == "mute" && -n $2 && $2 == "toggle" ]]; then
     mute_toggle
+elif [[ -n $1 && $1 == "up" && -z $2 ]]; then
+    volume up 
+elif [[ -n $1 && $1 == "down" && -z $2 ]]; then
+    volume down
 fi
