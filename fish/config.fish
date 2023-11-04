@@ -6,6 +6,7 @@ if status is-interactive
     set -gx GNUPGHOME ~/.gnupg
     set -gx DOCKER_HOST unix://$XDG_RUNTIME_DIR/docker.sock
     set -gx GRIPHOME ~/.config/grip
+    set -gx QT_SELECT 6
 end
 
 alias ls="lsd"
