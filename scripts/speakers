@@ -62,7 +62,7 @@ volume() {
     fi
     if [[ -n $1 && ($1 == "down" || $1 == "up") ]]; then
         percent=$(get_percent)
-        dunstify -t 1000 -h int:value:$percent "speakers"
+        notify-send -c volume -h int:value:$percent "speakers"
     fi
 }
 
