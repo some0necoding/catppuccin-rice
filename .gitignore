@@ -19,6 +19,8 @@ Thunar/
 xfce4/
 xsettingsd/
 QtProject.conf
+QtProject/
+clangd/
 VirtualBox/
 cava/
 aerc/
