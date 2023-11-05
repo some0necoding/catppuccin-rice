@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 
 -- configure c development environment
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "*.c", "*.h", "*.cpp", "*.hpp", "*.go", },
+    pattern = { "*.c", "*.h", "*.cpp", "*.hpp", "*.go", "*.rs" },
     callback = function()
         setlocal.colorcolumn = "80"             -- highlight column 80 for OS languages
     end,

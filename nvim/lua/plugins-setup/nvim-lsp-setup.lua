@@ -1,7 +1,7 @@
 -- nvim-lsp-setup.lua
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local servers = { 'gopls', 'clangd', 'jdtls', 'pylsp', 'lua_ls', 'bashls', 'ansiblels', 'yamlls', 'html', 'tsserver' }
+local servers = { 'gopls', 'clangd', 'jdtls', 'pylsp', 'lua_ls', 'bashls', 'ansiblels', 'yamlls', 'html', 'tsserver', 'rust_analyzer' }
 
 for _, server in ipairs(servers) do
 	require('lspconfig')[server].setup {
