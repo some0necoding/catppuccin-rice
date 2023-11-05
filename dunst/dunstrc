@@ -396,7 +396,6 @@
 
 [volume]
     category = "volume"
-    width = 5
     timeout = 1
 
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
