@@ -398,6 +398,14 @@
     category = "volume"
     timeout = 1
 
+[battery]
+    category = "battery"
+    background = "#900000"
+    foreground = "#ff0000"
+    frame_color = "#ff0000"
+    new_icon = "~/.config/dunst/assets/battery_low.svg"
+    max_icon_size = 48
+
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
