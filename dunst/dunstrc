@@ -396,6 +396,10 @@
 
 [volume]
     category = "volume"
+    new_icon = "~/.config/dunst/assets/volume.svg"
+    max_icon_size = 32
+    set_stack_tag = 10  # this will make volume notifications replace one another
+    progress_bar_horizontal_alignment = left
     timeout = 1
 
 [battery]
