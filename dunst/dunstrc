@@ -408,6 +408,7 @@
     foreground = "#ff0000"
     frame_color = "#ff0000"
     new_icon = "~/.config/dunst/assets/battery_low.svg"
+    set_stack_tag = 11  # this will make volume notifications replace one another
     max_icon_size = 48
 
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
