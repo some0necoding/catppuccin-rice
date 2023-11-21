@@ -6,7 +6,7 @@ if [[ -n $1 && $1 == "now" ]]; then
     grace=0
 fi
 
-swaylock -enf \
+swaylock -nf \
 	-i ~/.config/wallpapers/wallpaper-4.png \
     --indicator-x-position 400 \
 	--indicator-idle-visible \
