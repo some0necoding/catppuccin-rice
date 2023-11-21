@@ -34,5 +34,5 @@ swaylock -nf \
     --timestr %R \
     --datestr "%A %d %B %Y" \
     --fade-in 0.2 \
-    --font-size 130 \
+    --font-size 100 \
     --effect-blur 4x4
