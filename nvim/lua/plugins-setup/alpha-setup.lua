@@ -44,7 +44,7 @@ theta.header.val = header3
 
 theta.header.opts = {
 	position = "center",
-	hl = "Number",
+    hl = "Function"
 }
 
 theta.buttons.val = {
