@@ -12,8 +12,6 @@ if status is-interactive
     set -gx GPG_TTY $(tty)
 end
 
-# test
-
 alias ls="lsd"
 
 fish_add_path /home/marco/.spicetify
