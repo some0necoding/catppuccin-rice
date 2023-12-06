@@ -8,7 +8,7 @@ if status is-interactive
     set -gx GRIPHOME ~/.config/grip
     set -gx QT_SELECT 6
     set -gx QML_IMPORT_PATH /usr/lib/qt/qml
-    set -gx GIT_CREDENTIAL_STORE gpg
+    set -gx GCM_CREDENTIAL_STORE gpg
 end
 
 alias ls="lsd"
