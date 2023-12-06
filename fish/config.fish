@@ -9,6 +9,7 @@ if status is-interactive
     set -gx QT_SELECT 6
     set -gx QML_IMPORT_PATH /usr/lib/qt/qml
     set -gx GCM_CREDENTIAL_STORE gpg
+    set -gx GPG_TTY $(tty)
 end
 
 alias ls="lsd"
