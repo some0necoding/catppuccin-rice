@@ -3,6 +3,7 @@ if status is-interactive
 	set -gx XCURSOR_THEME "Breeze_Default"
 	set -gx XCURSOR_SIZE 24
     set -gx XDG_PICTURES_DIR ~/Pictures
+    set -gx XDG_CONFIG_HOME ~/.config
     set -gx GNUPGHOME ~/.gnupg
     set -gx DOCKER_HOST unix://$XDG_RUNTIME_DIR/docker.sock
     set -gx GRIPHOME ~/.config/grip
