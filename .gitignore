@@ -1,6 +1,7 @@
 cat_installer/
 dconf/
 gtk-*/
+github-copilot/
 pulse/
 systemd/
 yay/
@@ -39,3 +40,5 @@ Code/
 Docker Desktop/
 grip/
 obsidian/
+qBittorrent/*
+!qBittorrent/qBittorrent.conf
