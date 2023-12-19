@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
 	}
 
 	use 'kdheepak/lazygit.nvim'		-- git integration
+    use 'lewis6991/gitsigns.nvim'   -- git decorations
 	use 'windwp/nvim-autopairs'		-- auto closing brackets
 	use 'windwp/nvim-ts-autotag'	-- auto closing html tags
 
@@ -73,5 +74,10 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
+
+    -- github copilot
+    use {
+        'github/copilot.vim',
+    }
 
 end)

@@ -22,6 +22,8 @@ require('plugins-setup/nvim-lsp-setup')
 require('plugins-setup/nvim-cmp-setup')
 require('plugins-setup/lualine-setup')
 require('plugins-setup/colorschemes-setup')
+require('plugins-setup/copilot-setup')
+require('plugins-setup/gitsigns-setup')
 
 -- colorscheme
 require('colorscheme').set('catppuccin-macchiato')
@@ -36,3 +38,9 @@ key.map("n", "<A-k>", ":m .-2<CR>")
 -- telescope search
 key.map("n", '<A-f>', ':Telescope find_files<CR>')
 key.map("n", '<A-g>', ':Telescope live_grep<CR>')
+
+-- copilot
+key.map("i", '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+-- gitsigns
+key.map("n", 'gb', ':Gitsigns toggle_current_line_blame<CR>')
