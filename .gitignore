@@ -42,3 +42,4 @@ grip/
 obsidian/
 qBittorrent/*
 !qBittorrent/qBittorrent.conf
+rclone/
