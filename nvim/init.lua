@@ -44,3 +44,11 @@ key.map("i", '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- gitsigns
 key.map("n", 'gb', ':Gitsigns toggle_current_line_blame<CR>')
+
+-- vim tmux navigator
+vim.g.tmux_navigator_no_mappings = 1
+key.map("n", "<C-w>h", ":<C-U>TmuxNavigateLeft<cr>",     { silent = true })
+key.map("n", "<C-w>j", ":<C-U>TmuxNavigateDown<cr>",     { silent = true })
+key.map("n", "<C-w>k", ":<C-U>TmuxNavigateUp<cr>",       { silent = true })
+key.map("n", "<C-w>l", ":<C-U>TmuxNavigateRight<cr>",    { silent = true })
+key.map("n", "<C-w>p", ":<C-U>TmuxNavigatePrevious<cr>", { silent = true })

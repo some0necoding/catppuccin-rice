@@ -80,4 +80,10 @@ return require('packer').startup(function(use)
         'github/copilot.vim',
     }
 
+    -- tmux integration
+    use {
+        -- 'christoomey/vim-tmux-navigator',
+        'some0necoding/vim-tmux-navigator',
+    }
+
 end)
