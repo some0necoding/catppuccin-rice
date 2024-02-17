@@ -43,3 +43,4 @@ obsidian/
 qBittorrent/*
 !qBittorrent/qBittorrent.conf
 rclone/
+tmux/plugins/*
