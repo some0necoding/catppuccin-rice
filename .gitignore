@@ -44,3 +44,4 @@ qBittorrent/*
 !qBittorrent/qBittorrent.conf
 rclone/
 tmux/plugins/*
+dlv/.dbg_history
