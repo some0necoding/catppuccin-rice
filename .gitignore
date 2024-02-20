@@ -34,8 +34,7 @@ notion-app/
 obsidian/
 procps/
 pulse/
-qBittorrent/*
-!qBittorrent/qBittorrent.conf
+qBittorrent/
 QtProject/
 QtProject.conf
 rclone/
