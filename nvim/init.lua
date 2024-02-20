@@ -26,7 +26,7 @@ require('plugins-setup/copilot-setup')
 require('plugins-setup/gitsigns-setup')
 
 -- colorscheme
-require('colorscheme').set('catppuccin-macchiato')
+require('colorscheme').set('nord')
 
 -- keybindings
 local key = require('key')

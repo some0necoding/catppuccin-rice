@@ -44,4 +44,16 @@ qBittorrent/*
 !qBittorrent/qBittorrent.conf
 rclone/
 tmux/plugins/*
-dlv/.dbg_history
+dlv/
+yelp/
+.avalonia-build-tasks
+nautilus/
+user-dirs.dirs
+user-dirs.locale
+.gsd-keyboard.settings-ported
+Electron/
+autostart/
+connections.db
+evolution/
+gnome-control-center/
+inkscape/

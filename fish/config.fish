@@ -1,4 +1,8 @@
 if status is-interactive
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
+    set -gx SHELL fish
+    set -gx BROWSER firefox
 	set -gx PF_ASCII "Catppuccin"
 	set -gx XCURSOR_THEME "Breeze_Default"
 	set -gx XCURSOR_SIZE 24
